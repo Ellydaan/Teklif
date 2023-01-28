@@ -77,6 +77,7 @@ margin-top: 40px;
   width: 100%;
   height: 100%;
   padding-top: 60px ;
+  padding-bottom: 60px;
 }
 .item1{
   display: flex;
@@ -121,7 +122,7 @@ margin-top: 40px;
 .logo{
   width: 100px;
   height: 30px;
-  margin-bottom: 11px;
+  margin-bottom: 10px;
 }
 h1{
   margin: 0;
@@ -129,8 +130,9 @@ h1{
 }
 p{
 
-  margin-top:20px;
+
   font-size: 23px;
+  margin-bottom: 0;
 }
 .Titre{
   display: flex;

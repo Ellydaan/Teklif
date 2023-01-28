@@ -18,7 +18,7 @@
       </ul>
       <div class="navb-txt">
       <span class="navbar-text">
-    <a href="#" class="myButton">Crée un compte</a>
+    <router-link class="myButton" to="/register" >Créé un compte </router-link>
     </span>
       <span class="navbar-text">
     <a href="#"  class="connect">Connection</a>
