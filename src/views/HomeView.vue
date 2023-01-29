@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .CTN{
- margin: 5px;
+
 
 
 }

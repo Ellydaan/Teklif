@@ -22,7 +22,9 @@
     </span>
       <span class="navbar-text">
     <a href="#"  class="connect">Connection</a>
+
     </span>
+        <router-link to="/Annonce">Ajoutez une annonce</router-link>
       </div>
     </div>
   </nav>

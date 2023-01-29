@@ -32,6 +32,7 @@ export default {
 
 <style scoped>
 
+
 .flex-container {
   display: flex;
   flex-direction: row;
@@ -39,7 +40,7 @@ export default {
   align-items: center;
   height: 80vh;
   width: 100%;
-  padding-top: 30px;
+
 
 
 }
