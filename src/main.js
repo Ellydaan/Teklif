@@ -6,6 +6,8 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyBuAD7t0E6pJdGmyjL7GJIzAtRfrVVCXw0",
 
@@ -22,12 +24,12 @@ const firebaseConfig = {
 
 // Use this to initialize the firebase App
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-
 // Use these for db & auth
-const db = firebaseApp.firestore();
+
 const auth = firebase.auth();
 
 export { auth, db };
+const db = firebaseApp.firestore()
 
 Vue.config.productionTip = false
 

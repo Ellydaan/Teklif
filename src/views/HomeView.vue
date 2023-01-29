@@ -24,7 +24,7 @@ import Solution from "@/components/Solution";
 import Partenaire from "@/components/Partenaire";
 import Domain from "@/components/Domain";
 import Last from "@/components/Last";
-import ok from "@/components/Singup";
+
 
 
 export default {
