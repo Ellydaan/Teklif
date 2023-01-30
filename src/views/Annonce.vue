@@ -1,13 +1,18 @@
 <template>
+  <div>
+  <UserCreate />
+
+  </div>
 
 </template>
 
 <script>
+import UserCreate from '@/components/UserCreate.vue'
+import UserList from '@/components/UserList.vue'
+
 export default {
-name: "Annonce"
+  name: 'Home',
+  components: { UserCreate, UserList }
 }
 </script>
 
-<style scoped>
-
-</style>

@@ -5,23 +5,24 @@ import store from './store'
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
-
+import { ref, onUnmounted } from 'vue'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBuAD7t0E6pJdGmyjL7GJIzAtRfrVVCXw0",
 
-  authDomain: "login-73f89.firebaseapp.com",
+  apiKey: "AIzaSyAiFFySEuQ3UWlG-S_J1G0VMiMTr8Uu_LU",
 
-  projectId: "login-73f89",
+  authDomain: "boob-50755.firebaseapp.com",
 
-  storageBucket: "login-73f89.appspot.com",
+  projectId: "boob-50755",
 
-  messagingSenderId: "140352144251",
+  storageBucket: "boob-50755.appspot.com",
 
-  appId: "1:140352144251:web:b3776385314363832233de",
+  messagingSenderId: "36262133635",
+
+  appId: "1:36262133635:web:e035b48f606c73dab880b6"
+
 };
-
 // Use this to initialize the firebase App
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 // Use these for db & auth
@@ -32,6 +33,35 @@ export { auth, db };
 const db = firebaseApp.firestore()
 
 Vue.config.productionTip = false
+
+
+const usersCollection = db.collection('users')
+
+export const createUser = user => {
+  return usersCollection.add(user)
+}
+
+export const getUser = async id => {
+  const user = await usersCollection.doc(id).get()
+  return user.exists ? user.data() : null
+}
+
+export const updateUser = (id, user) => {
+  return usersCollection.doc(id).update(user)
+}
+
+export const deleteUser = id => {
+  return usersCollection.doc(id).delete()
+}
+
+export const useLoadUsers = () => {
+  const users = ref([])
+  const close = usersCollection.onSnapshot(snapshot => {
+    users.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+  })
+  onUnmounted(close)
+  return users
+}
 
 new Vue({
   router,
