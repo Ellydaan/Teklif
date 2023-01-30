@@ -77,7 +77,7 @@ export default {
   align-items: center;
  background-color: #f2e6e2;
   height: 100vh;
-  border-top: black 2px solid;
+  border-top: #FFFFFF 2px solid;
 }
 .card1{
   width: 50%;

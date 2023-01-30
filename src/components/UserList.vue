@@ -1,32 +1,15 @@
 <template>
-  <div class="card mt-4">
-    <table class="table m-0">
-      <thead>
-        <tr>
-          <th scope="col">Poste</th>
-          <th scope="col">lieux</th>
-          <th scope="col">mission</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="{ id,poste, lieux,mission } in users" :key="id">
-          <td>{{ poste }}</td>
-          <td>{{ lieux }}</td>
-          <td>{{ mission }}</td>
-          <td>
-            <router-link :to="`/edit/${id}`">
-              <button class="btn btn-primary btn-sm me-2">
-                Edit
-              </button>
-            </router-link>
-            <button class="btn btn-danger btn-sm" @click="deleteUser(id)">
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div  class="container">
+  <div v-for="{ id,poste, lieux,mission } in users" :key="id" class="card" style="width: 18rem;">
+    <div  class="card-body">
+      <h5 class="card-title">{{ poste }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ lieux }}</h6>
+      <p class="card-text">{{ mission }}</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -39,3 +22,17 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+
+
+}
+.card{
+  margin: 20px;
+}
+</style>

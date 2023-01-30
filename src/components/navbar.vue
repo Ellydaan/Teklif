@@ -7,7 +7,8 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Mission <span class="sr-only">(current)</span></a>
+          <router-link to="/Mission" class="nav-link">Mission</router-link>
+
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Etudiants</a>
