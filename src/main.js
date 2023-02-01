@@ -35,7 +35,9 @@ const db = firebaseApp.firestore()
 Vue.config.productionTip = false
 
 
-const usersCollection = db.collection('users')
+const usersCollection = db.collection('users',)
+
+
 
 export const createUser = user => {
   return usersCollection.add(user)

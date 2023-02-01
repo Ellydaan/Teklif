@@ -11,6 +11,7 @@
       <p class="txt"> Les étudiants vous accompagnent dans la concrétisation de vos projets. Grâce à leur dynamisme et à leur maîtrise de la théorie, ils sauront apporter nouveauté et rigueur.
         Par le biais de Teklif, vous avez accès à un large panel d’étudiants, qui pourront devenir de précieux collaborateurs.</p>
     </div>
+
     </div>
 
       <img class="ctn_img" src="../assets/last1.png" alt="entre">
@@ -22,7 +23,7 @@
 
 
 
-  <div class="item1">
+  <div class="item2 ">
 
     <div class="ctn_txt1">
 
@@ -82,6 +83,14 @@ export default {
   margin-bottom: 20px;
 
 }
+.item2{
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: 50%;
+  gap: 15px;
+  margin-bottom: 20px;
+}
 .ctn_img{
   width: 50%;
 
@@ -140,7 +149,7 @@ text-align: center;
   display: flex;
   flex-direction: row;
 
-  
+
  padding-bottom: 10px;
 }
 .gauche{
@@ -225,6 +234,7 @@ h1 {
     font-size: 13px;
 
   }
+
 
 
 }
