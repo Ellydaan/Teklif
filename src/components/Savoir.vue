@@ -1,12 +1,12 @@
 <template>
   <div  class="CTN" >
 
-    <div class="ctn">
+    <div class="ctn" v-if="!isLoading">
     <h1>{{info.poste}}</h1>
     <h1>{{info.lieux}}</h1>
     <h1>{{info.mission}}</h1>
     </div>
-
+    <div v-else>Loading...</div>
   </div>
 
 

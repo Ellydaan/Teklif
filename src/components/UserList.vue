@@ -1,7 +1,7 @@
 <template>
-<div  class="container" v-if="isLoading">
-  <div v-for="{ id,poste, lieux,mission } in users" :key="id" class="card" style="width: 18rem;">
-    <div  class="card-body">
+  <div  class="CTN" v-if="isLoading">
+  <div class="card" v-for="{ id,poste, lieux,mission } in users" :key="id">
+    <div class="card-body">
       <h5 class="card-title">{{ poste }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ lieux }}</h6>
       <p class="card-text">{{ mission }}</p>
@@ -12,10 +12,8 @@
       </router-link>
 
     </div>
-
   </div>
-
-</div>
+  </div>
   <div v-else>Loading...</div>
 </template>
 
@@ -36,15 +34,50 @@ export default {
 </script>
 
 <style scoped>
-.container{
+.CTN{
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-
-
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding-top: 30px;
+  background: #f2e6e2;
+  border-top: #FFFFFF 2px solid;
+  padding-bottom: 10%;
 
 }
-.card{
-  margin: 20px;
+
+
+
+
+
+.card {
+  box-sizing: border-box;
+  width: 30%;
+
+  background: #f2e6e2;
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+
+}
+
+.card:hover {
+  border: 1px solid #ff7e5a;
+  transform: scale(1.05);
+}
+
+.card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
 }
 </style>
