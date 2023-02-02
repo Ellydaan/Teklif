@@ -17,13 +17,18 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Nos service</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{name}}</a>
+        </li>
       </ul>
       <div class="navb-txt">
       <span class="navbar-text">
-    <router-link class="myButton" to="/register" >Créer un compte </router-link>
+
+    <button class="myButton"  v-if="isLoggedIn" @click="logout" >Déconnexion </button>
+         <router-link class="myButton" to="/Login" v-else >Connexion </router-link>
     </span>
       <span class="navbar-text">
-    <a href="#"  class="connect">Connexion</a>
+
 
     </span>
         <router-link class="Ann" to="/Annonce">Ajoutez une annonce</router-link>
@@ -37,15 +42,46 @@
 
 
 <script>
+import firebase from "firebase/compat/app";
 export default {
   name: 'navbar',
+
+  data() {
+    return {
+     name:"",
+      isLoggedIn: false,
+    }
+  },
+  mounted() {
+    const user = firebase.auth().currentUser;
+    if (user) {
+      this.name = user.email.split('@')[0];
+      this.isLoggedIn = true;
+    }
+    else {
+      this.isLoggedIn = false;
+
+  }
+
+  },
   methods: {
 
 
-}
-
-
-
+    logout() {
+      firebase
+          .auth()
+          .signOut()
+          .then(() => {
+            alert('Successfully logged out');
+            this.$router.push('/');
+            this.name="";
+          })
+          .catch(error => {
+            alert(error.message);
+            this.$router.push('/');
+          });
+    },
+  }
 };
 </script>
 

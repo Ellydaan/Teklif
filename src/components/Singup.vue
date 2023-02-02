@@ -42,7 +42,7 @@ export default {
   methods: {
     register() {
       if (this.password !== this.password1) {
-        alert("ce n'est pas le bon mdp");
+        alert("Ce n'est pas le bon mdp");
         return;
       }
       firebase

@@ -1,6 +1,6 @@
 <template>
-  <div  class="CTN" v-if="isLoading">
-  <div class="card" v-for="{ id,poste, lieux,mission } in users" :key="id">
+  <div  class="CTN" >
+  <div class="card"  v-if="isLoading" v-for="{ id,poste, lieux,mission } in users" :key="id">
     <div class="card-body">
       <h5 class="card-title">{{ poste }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ lieux }}</h6>
@@ -13,8 +13,9 @@
 
     </div>
   </div>
+    <div v-else>Loading...</div>
   </div>
-  <div v-else>Loading...</div>
+
 </template>
 
 <script>
@@ -55,7 +56,6 @@ export default {
 .card {
   box-sizing: border-box;
   width: 30%;
-
   background: #f2e6e2;
   border: 1px solid white;
   box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
@@ -79,5 +79,11 @@ export default {
 
 .card:active {
   transform: scale(0.95) rotateZ(1.7deg);
+}
+.btn{
+  background-color: #FF7D5A;
+  border: none;
+
+
 }
 </style>
