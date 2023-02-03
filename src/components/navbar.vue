@@ -12,14 +12,13 @@
 
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Etudiants</a>
+          <a class="nav-link" href="#" v-if="isLoggedIn">{{etudiant}}</a>
+          <a class="nav-link" href="#" v-else >{{etudiant}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Nos service</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">{{name}}</a>
-        </li>
+
       </ul>
       <div class="navb-txt">
       <span class="navbar-text">
@@ -27,11 +26,12 @@
     <button class="myButton"  v-if="isLoggedIn" @click="logout" >Déconnexion </button>
          <router-link class="myButton" to="/Login" v-else >Connexion </router-link>
     </span>
-      <span class="navbar-text">
+        <span class="navbar-text">
 
 
     </span>
-        <router-link class="Ann" to="/Annonce">Ajoutez une annonce</router-link>
+        <button class="BTN" v-if="isLoggedIn" >{{name}}<img src="../assets/icons8-user-60.png" alt="user"></button>
+
       </div>
     </div>
   </nav>
@@ -43,30 +43,34 @@
 
 <script>
 import firebase from "firebase/compat/app";
+
 export default {
   name: 'navbar',
 
   data() {
     return {
-     name:"",
+      name:"",
+      etudiant:"",
       isLoggedIn: false,
+      user: JSON.parse(localStorage.getItem("user"))
     }
   },
-  mounted() {
-    const user = firebase.auth().currentUser;
-    if (user) {
-      this.name = user.email.split('@')[0];
-      this.isLoggedIn = true;
-    }
-    else {
-      this.isLoggedIn = false;
-
-  }
-
+  created() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.name = user.email.split('@')[0];
+        this.isLoggedIn = true;
+        this.etudiant = "";
+        localStorage.setItem("user", JSON.stringify(user));
+      }
+      else {
+        this.isLoggedIn = false;
+        this.etudiant = "étudiant";
+        localStorage.removeItem("user");
+      }
+    });
   },
   methods: {
-
-
     logout() {
       firebase
           .auth()
@@ -75,6 +79,7 @@ export default {
             alert('Successfully logged out');
             this.$router.push('/');
             this.name="";
+            this.isLoggedIn = false;
           })
           .catch(error => {
             alert(error.message);
@@ -137,6 +142,10 @@ export default {
 .Ann{
   text-decoration: none;
   color : #000000;
+}
+.BTN{
+  background-color: transparent;
+  border: none;
 }
 
 

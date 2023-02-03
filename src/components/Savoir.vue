@@ -1,6 +1,7 @@
 <template>
   <div  class="CTN" >
 
+
     <div class="ctn" v-if="!isLoading">
     <h1>{{info.poste}}</h1>
     <h1>{{info.lieux}}</h1>
@@ -42,7 +43,6 @@ import Navbar from "@/components/navbar";
 <style scoped>
 
 .CTN{
-  background-color: red;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -51,6 +51,10 @@ import Navbar from "@/components/navbar";
 .ctn{
   background-color: pink;
   width: 50%;
+  border-radius: 55px;
+  box-shadow: inset 14px 14px 75px #d1d1d1,
+  inset -14px -14px 75px #ffffff;
+  margin-top: 40px;
 
 
 }

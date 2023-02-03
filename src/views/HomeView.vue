@@ -32,6 +32,7 @@ export default {
   components: {
     navbar,Heros,Solution,Partenaire,Domain,Last,
   }
+
 }
 </script>
 
