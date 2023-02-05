@@ -47,24 +47,22 @@
 
 <script>
 import { createUser } from '@/main'
-
-import { reactive } from 'vue'
 import Navbar from "@/components/navbar";
 
 export default {
   components: {Navbar},
-  setup() {
-    const form = reactive({ poste: '', lieux: '', mission: '' })
-
-    const onSubmit = async () => {
-      await createUser({ ...form })
-      form.poste = ''
-      form.lieux = ''
-      form.mission = ''
-
+  data() {
+    return {
+      form: { poste: '', lieux: '', mission: '' },
     }
-
-    return { form, onSubmit }
+  },
+  methods: {
+    onSubmit() {
+      createUser({ ...this.form })
+      this.form.poste = ''
+      this.form.lieux = ''
+      this.form.mission = ''
+    }
   }
 }
 </script>

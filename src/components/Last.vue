@@ -1,62 +1,23 @@
 <template>
-<div class="ctn">
+<div class="CTN" >
+  <div class="ctn">
+    <p>Venez rejoindre l'aventure teklik</p>
+  </div>
+  <div class="ctn1">
+    <p>Vous avez des questions ?</p>
+  </div>
+  <div class="ctn2">
+   <div class="gauche">
 
-  <div class="item1">
+     <a class="btn" href="#">I am a button</a>
+   </div>
+<div class="droite">
 
-    <div class="ctn_txt">
-
-      <div class="ctn-txt">
-
-      <h1 class="titre"> Collaborez avec les meilleurs étudiants en quelques clics </h1>
-      <p class="txt"> Les étudiants vous accompagnent dans la concrétisation de vos projets. Grâce à leur dynamisme et à leur maîtrise de la théorie, ils sauront apporter nouveauté et rigueur.
-        Par le biais de Teklif, vous avez accès à un large panel d’étudiants, qui pourront devenir de précieux collaborateurs.</p>
-    </div>
-
-    </div>
-
-      <img class="ctn_img" src="../assets/last1.png" alt="entre">
-
-
-
+  <a class="btn" href="#">I am a button</a>
+</div>
   </div>
 
-
-
-
-  <div class="item2 ">
-
-    <div class="ctn_txt1">
-
-      <div class="ctn-txt">
-
-        <h1 class="titre"> Collaborez avec les meilleurs étudiants en quelques clics </h1>
-        <p class="txt"> Les étudiants vous accompagnent dans la concrétisation de vos projets. Grâce à leur dynamisme et à leur maîtrise de la théorie, ils sauront apporter nouveauté et rigueur.
-          Par le biais de Teklif, vous avez accès à un large panel d’étudiants, qui pourront devenir de précieux collaborateurs.</p>
-      </div>
-    </div>
-
-    <img class="ctn_img" src="../assets/last2.png" alt="entre">
-
-
-
-  </div>
-
-  <div class="item3">
-    <div class="gauche">
-      Je dépose une mission
-
-    </div>
-    <div class="droite">
-      Je trouve une mission
-    </div>
-  </div>
-
-
-
-
-
-
-  </div>
+</div>
 </template>
 
 <script>
@@ -66,177 +27,83 @@ export default {
 </script>
 
 <style scoped>
-.ctn{
-  display: flex;
-  flex-direction: column;
+.CTN{
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  height: 50vh;
   width: 100%;
-  height: 100vh;
-  margin-top: 150px;
-
-}
-.item1{
+  margin-top: 100px;
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 50%;
-  gap: 15px;
-  margin-bottom: 20px;
-
-}
-.item2{
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  height: 50%;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-.ctn_img{
-  width: 50%;
-
-}
-.txt{
-  width: 95%;
-  font-size: 24px;
- color: #FFFFFF;
-
-text-align: center;
-}
-.ctn_txt{
-
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: #E94E1B;
-
-}
-.ctn_txt1{
-
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #2A7FDB;
-
-}
-.ctn-txt{
-  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  flex-wrap: wrap;
 
 }
+.ctn{
+  text-align: center;
+  font-size:50px ;
+  width: 50%;
+}
 
+.ctn1{
 
-.titre{
-  color: white;
+  font-size:40px ;
 
-  font-weight: 600;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  width: 90%;
+}
+.ctn2{
+  display: flex;
+
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 15px;
+  gap: 20px;
+
+}
+.gauche{
+
   text-align: center;
 
 }
-.item3{
-  width: 100%;
-
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-
-
- padding-bottom: 10px;
-}
-.gauche{
-  display: flex;
-  background-color: red;
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-  font-size: 40px;
-  color: #FFFFFF;
-  margin: 10px;
-}
 .droite{
-  background-color: blue;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 40px;
-  color: #FFFFFF;
-  margin: 10px;
-}
-@media screen and (max-width: 1300px) {
-h1 {
-  font-size: 30px;
-  line-height: 150%;
-}
 
-  .ctn-txt{
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-  }
-  .item1{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-
-  }
-  .ctn_txt{
-    width: 100%;
-    height:100%;
-  }
-  .ctn_txt1{
-    width: 100%;
-    height:100%;
-  }
-  .ctn-txt{
-    width: 80%;
-
-  }
-  .ctn_img{
-    width: 100%;
-  }
-  .ctn{
-    margin-top: 0;
-  }
-  .titre{
-    width: 100%;
-    margin-bottom: 20px;
-    font-size: 20px;
-    padding-left: 30px;
-
-  }
-  .txt{
-    width: 100%;
-    font-size: 20px;
-  }
-  .ctn-txt{
-    width: 100%;
-    padding: 15px;
-  }
-  .gauche{
-    font-size: 13px;
-   padding: 10px;
-
-
-  }
-  .droite{
-    font-size: 13px;
-
-  }
-
-
+  text-align: center;
 
 }
+
+.btn {
+
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  background-color: black;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(252, 70, 100);
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+}
+
 
 </style>

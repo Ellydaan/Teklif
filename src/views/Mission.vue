@@ -7,12 +7,13 @@
 <script>
 
 import UserList from "@/components/UserList";
-import Navbar from "@/components/navbar";
+
+import navbar from "@/components/navbar";
 
 export default {
   name: 'About',
   components: {
-    Navbar,
+    navbar,
     UserList,
   },
 }

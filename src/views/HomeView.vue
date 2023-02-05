@@ -10,6 +10,7 @@
     <partenaire/>
     <domain/>
 <Last/>
+      <Footer/>
     </div>
   </div>
 
@@ -24,13 +25,14 @@ import Solution from "@/components/Solution";
 import Partenaire from "@/components/Partenaire";
 import Domain from "@/components/Domain";
 import Last from "@/components/Last";
+import Footer from "@/components/Footer";
 
 
 
 export default {
   name: 'HomeView',
   components: {
-    navbar,Heros,Solution,Partenaire,Domain,Last,
+    navbar,Heros,Solution,Partenaire,Domain,Last,Footer
   }
 
 }

@@ -6,18 +6,15 @@
         <h2 class="animation a1">Crée votre compte</h2>
         <h4 class="animation a2">Log in to your account using email and password</h4>
       </div>
-      <form class="form" @submit.prevent="register">
-        <input type="text" class="form-field animation a3" placeholder="Prenom"  v-model="prenom" required>
-        <input type="text" class="form-field animation a4" placeholder="Name"  v-model="nom" required>
+      <form class="form" @submit.prevent="createUser">
+        <input type="text" class="form-field animation a3" placeholder="Name" v-model:nonce="nom" required>
+        <input type="email" class="form-field animation a4" placeholder="Email Address" v-model="email" required>
+        <input type="password" class="form-field animation a5" placeholder="Password" v-model="password" required>
 
-        <input type="email" class="form-field animation a5" placeholder="Email Address" v-model="email" required>
-        <input type="password" class="form-field animation a6" placeholder="Password" v-model="password" required>
-        <input type="password" class="form-field animation a7" placeholder="Confirmer votre password" v-model="password1" required>
-        <p class="animation a8"><a href="#">Forgot Password</a></p>
-        <button class="animation a9">s'enregister</button>
+        <p class="animation a7"><a href="#">Forgot Password</a></p>
+        <button class="animation a8">s'enregister</button>
       </form>
-      <router-link to="/Login" class="animation a10 button">Vous avez déja un compte</router-link>
-      <router-link to="/Entreprise" class="animation a11 button">Je suis une entreprise</router-link>
+      <router-link to="/Login" class="animation a9 button">Vous avez déja un compte</router-link>
 
 
 
@@ -34,40 +31,36 @@
 <script>
 import firebase from "firebase/compat/app";
 import {db} from "@/main";
-
+import router from "@/router";
 export default {
   data() {
     return {
-      email: "",
-      password: "",
-      password1 : "",
-      nom : "",
-      prenom : "",
+      nom:"",
+      email: '',
+      password: '',
     };
   },
   methods: {
-    register() {
-      if (this.password !== this.password1) {
-        alert("Ce n'est pas le bon mdp");
-        return;
-      }
-      firebase
-          .auth()
-          .createUserWithEmailAndPassword(this.email, this.password,)
-          .then(() => {
-            const user = firebase.auth().currentUser;
-            db.collection('etudiant').doc(user.uid).set({ email: this.email , nom: this.nom, prenom:this.prenom });
-            alert("Successfully registered! Please login.");
-            this.$router.push('/Login');
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
+    async createUser() {
+      try {
+        await firebase.auth().createUserWithEmailAndPassword(this.email, this.password);
+        const user = firebase.auth().currentUser;
+        await db.collection('entreprise').doc(user.uid).set({ email: this.email , nom: this.nom });
+        alert('Account created successfully!');
+        await router.push('/Login');
 
+      }
+
+
+      catch (error) {
+        console.error(error);
+        alert(error.message);
+      }
     },
   },
 };
 </script>
+
 <style scoped>
 * { box-sizing: border-box; }
 

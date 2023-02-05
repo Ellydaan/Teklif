@@ -24,32 +24,35 @@ export default {
 <style scoped>
 
 .ctn_flex{
+  margin-top: 90px;
   color: white;
   width: 100%;
-  height: 80vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background:  url(../assets/partenaire.png) no-repeat top center ;
-  margin-top: 50px;
+
+
 }
 .item_txt{
   text-align: center;
-  width: 50%;
+  width: 100%;
   height: 50%;
   background-color: rgb(233, 78, 27,0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 60px;
+  padding: 20px;
+
+  color: #000000;
 
 }
 .btn_txt{
 
   background-color: transparent;
-  color: #FFFFFF;
-  border: solid 3px #FFFFFF;
+  color: #000000;
+  border: solid 3px #000000;
   padding: 10px 20px;
   border-radius: 5px;
   margin-top: 20px;
@@ -58,7 +61,7 @@ export default {
 }
 p{
   margin: 0;
-  width: 80%;
+  width: 50%;
   font-size: 20px;
 }
 @media screen and (max-width: 1300px) {
