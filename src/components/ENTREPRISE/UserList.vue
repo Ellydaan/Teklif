@@ -1,7 +1,7 @@
 <template>
 
  <div class="CTN">
-    <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission, Durée} in users" :key="id">
+    <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission, Durée,profile,remuneration} in users" :key="id">
       <div class="temporary_text">
         Place image here
       </div>
@@ -10,6 +10,8 @@
         <p class="card_subtitle">Lieux : {{lieux}}</p>
         <p class="card_description">Mission : {{mission}}</p>
         <p class="card_duree">Durée : {{Durée}}</p>
+
+
 
 
         <router-link  class="btn" :to="`/Savoir/${id}`">En savoir plus</router-link>

@@ -12,13 +12,15 @@
         <div class="item1">
           <div class="right">
             <h1>Rémuneration</h1>
-            <p> 1000€/mois</p>
+            <p> {{info.remuneration}}</p>
           </div>
         </div>
         <div class="item2"><div class="right">
           <h1>Durée</h1>
-          <p> 1000€/mois</p>
-        </div></div>
+          <p> {{info.Durée}}</p>
+        </div>
+
+        </div>
         <div class="item3">
           <div class="left">
             <h1>Postuler</h1>
