@@ -5,19 +5,20 @@
       <div class="ctn">
     <h1 class ="Titre">{{info.poste}}</h1>
     <h2 class ="ST">{{info.lieux}}</h2>
-    <p class ="Text">Description de la mission : {{info.mission}}</p>
-      <p class ="Text">Profile rechercher :  Etudiant en informatique, avec des compétences en JavaScript, SQL. Formation école d’informatique (EPITA, EFREI){{info.mission}}</p>
+    <p class ="Text">
+      Description de la mission : {{info.mission}}</p>
+      <p class ="Text">Profile rechercher :  {{info.profile}}</p>
       </div>
       <div class="box">
         <div class="item1">
           <div class="right">
             <h1>Rémuneration</h1>
-            <p> 1000€/mois</p>
+            <p> {{info.remuneration}}</p>
           </div>
         </div>
         <div class="item2"><div class="right">
           <h1>Durée</h1>
-          <p> 1000€/mois</p>
+          <p> {{info.Durée}}</p>
         </div></div>
         <div class="item3">
           <div class="left">
@@ -68,17 +69,17 @@ import Navbar from "@/components/navbar";
 
 .CTN {
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
 }
 .ctn{
  margin: 15px 20px ;
 
 }
+
 
 
 #demoObject {
@@ -182,5 +183,6 @@ body#tinymce {
   padding: 0 30px;
   text-align: center;
 }
+
 
 </style>
