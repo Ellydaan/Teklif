@@ -6,7 +6,7 @@
 </template>
 <script>
 
-import UserList from "@/components/UserList";
+import UserList from "@/components/ENTREPRISE/UserList";
 
 import navbar from "@/components/navbar";
 

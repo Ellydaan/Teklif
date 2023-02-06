@@ -10,9 +10,9 @@
           <input v-model="prenom" placeholder="Prénom" type="text" class="input" required>
           <input v-model="nom" placeholder="Nom" type="text" class="input" required>
           <input v-model="specialite" placeholder="Spécialité" type="text" class="input" required>
+
+          <button @click="addSpecialite">Click</button>
         </div>
-        <button> Click
-        </button>
       </div>
 
     </div>
@@ -32,6 +32,18 @@ export default {
       specialite: ""
     };
   },
+  methods: {
+    addSpecialite() {
+      firebase.auth().onAuthStateChanged((user) => {
+          db.collection("etudiant").doc(user.uid).update({
+            specialite: this.specialite
+          });
+        db.collection('Card').doc(user.uid).set({ prenom: this.prenom, nom: this.nom, specialite: this.specialite });
+          alert("specialite ajouté");
+
+      });
+    }
+  },
   created() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -40,18 +52,13 @@ export default {
               if (doc.exists) {
                 this.prenom = doc.data().prenom;
                 this.nom = doc.data().nom;
-                this.specialite = doc.data().specialite;
               }
+
             });
       }
     });
   }
 };
-</script>
-
-La méthode created() est appelée lorsque le composant est créé. Elle vérifie si un utilisateur est connecté et, si c'est le cas, utilise la bibliothèque Firebase pour récupérer le document correspondant dans la collection "etudiant" et remplir les propriétés de données prenom, nom et specialite. Les entrées de saisie sont liées aux propriétés de données en utilisant la directive v-model.
-
-}
 </script>
 
 <style scoped>

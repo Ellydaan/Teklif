@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import UserCreate from '@/components/UserCreate.vue'
-import UserList from '@/components/UserList.vue'
+import UserCreate from '@/components/ENTREPRISE/UserCreate.vue'
+import UserList from '@/components/ENTREPRISE/UserList.vue'
 
 export default {
   name: 'Home',

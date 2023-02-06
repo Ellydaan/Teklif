@@ -5,19 +5,20 @@
   <div class="ctn">
     <div class="ctn1">
       <router-link to="/AddC" class="btn" >Ajouter votre Card</router-link>
-
     </div>
   </div>
+<CardsList/>
 </div>
 
 </template>
 
 <script>
 import Navbar from "@/components/navbar";
+import CardsList from "@/components/ETUDIANT/CardList";
 
 export default {
   name: "Etudiant",
-  components: {Navbar},
+  components: {Navbar,CardsList},
 }
 </script>
 

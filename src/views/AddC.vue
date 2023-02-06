@@ -2,16 +2,18 @@
   <div class="CTN">
   <Navbar/>
 <CardE/>
+    <CardsList/>
   </div>
 </template>
 
 <script>
-import CardE from "@/components/CardE";
+import CardE from "@/components/ETUDIANT/CardE";
 import Navbar from "@/components/navbar";
+import CardsList from "@/components/ETUDIANT/CardList";
 
 export default {
   name: "AddC",
-  components: {Navbar, CardE},
+  components: {CardsList, Navbar, CardE},
 }
 </script>
 

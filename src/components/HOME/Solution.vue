@@ -3,20 +3,20 @@
 
   <div class="row1-container">
     <div class="box box-down cyan">
-      <h2>Supervisor</h2>
-      <p>Monitors activity to identify project roadblocks</p>
+      <h2>Entreprisesr</h2>
+      <p>avec des besoins particuliers</p>
       <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
     </div>
 
     <div class="box red">
-      <h2>Team Builder</h2>
-      <p>Scans our talent network to create the optimal team for your project</p>
+      <h2>Étudiants</h2>
+      <p>dynamiques prêts à répondre à ces besoins</p>
       <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
     </div>
 
     <div class="box box-down blue">
-      <h2>Calculator</h2>
-      <p>Uses data from past projects to provide better delivery estimates</p>
+      <h2>Une solution </h2>
+      <p>conçue pour trouver le meilleur match entre l’étudiant et l’entreprise </p>
       <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
     </div>
   </div>
@@ -59,6 +59,7 @@ body {
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
   background-color: var(--veryLightGray);
+
 
 
 }

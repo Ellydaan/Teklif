@@ -8,7 +8,7 @@
       <p>Je suis une entreprise</p>
       <h1>JE CHERCHE UN ETUDIANT</h1>
         <p>dynamique et qualifié pour répondre à mon besoin</p>
-        <a href="#" class="btn_txt">Trouver un etudiant </a>
+        <ButtonO/>
         </div>
 
     </div>
@@ -16,7 +16,7 @@
       <p>Je suis étudiant</p>
       <h1>JE CHERCHE UNE ENTREPRISE</h1>
       <p>rapide et rémunérée, dans mon domaine d’étude</p>
-      <a href="#" class="btn_txt">Trouver une mission</a>
+      <ButtonB/>
 
     </div></div>
 
@@ -25,8 +25,12 @@
 </template>
 
 <script>
+import ButtonO from "@/components/HOME/Button/ButtonO";
+import ButtonB from "@/components/HOME/Button/ButtonB";
+
 export default {
-  name: "Heros"
+  name: "Heros",
+  components: {ButtonO,ButtonB},
 }
 </script>
 
@@ -40,6 +44,7 @@ export default {
   align-items: flex-start;
   height: 95vh;
   width: 100%;
+  margin-bottom: 60px;
 
 
 
@@ -48,8 +53,8 @@ export default {
 
   color: white;
   width: 50%;
-  background:url(../assets/item1.png) no-repeat center center ;
-  height: 80vh;
+  background:url(../../assets/item1.png) no-repeat ;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,10 +97,10 @@ h1{
 
   color: white;
   width: 50%;
-  background:url(../assets/item2.png) no-repeat center center ;
+  background:url(../../assets/item2.png)  no-repeat ;
 
 
-  height: 80vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,7 +109,7 @@ h1{
   .flex-container {
     flex-direction: column;
     height: 100vh;
-    gap: 30px;
+
 
 
   }

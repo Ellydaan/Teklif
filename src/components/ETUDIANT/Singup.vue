@@ -59,6 +59,7 @@ export default {
             db.collection('etudiant').doc(user.uid).set({ email: this.email , nom: this.nom, prenom:this.prenom });
             alert("Successfully registered! Please login.");
             this.$router.push('/Login');
+
           })
           .catch((error) => {
             alert(error.message);

@@ -4,7 +4,7 @@
 
 <script>
 
-import SingE from "@/components/SingE";
+import SingE from "@/components/ENTREPRISE/SingE";
 
 export default {
   name: "Entreprise",

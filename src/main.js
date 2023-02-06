@@ -36,6 +36,7 @@ Vue.config.productionTip = false
 
 
 const usersCollection = db.collection('users',)
+const Card = db.collection('Card')
 
 
 
@@ -63,6 +64,14 @@ export const useLoadUsers = () => {
   })
   onUnmounted(close)
   return users
+}
+export const useLoadCard = () => {
+  const etudiant = ref([])
+  const close = Card.onSnapshot(snapshot => {
+    etudiant.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+  })
+  onUnmounted(close)
+  return etudiant
 }
 
 new Vue({

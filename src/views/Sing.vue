@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Singup from "@/components/Singup";
+import Singup from "@/components/ETUDIANT/Singup";
 
 export default {
   name: "Sing",

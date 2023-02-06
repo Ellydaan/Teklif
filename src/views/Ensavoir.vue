@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Savoir from "@/components/Savoir";
+import Savoir from "@/components/ENTREPRISE/Savoir";
 import navbar from "@/components/navbar";
 
 export default {

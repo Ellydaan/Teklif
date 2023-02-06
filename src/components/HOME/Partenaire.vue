@@ -4,7 +4,7 @@
 
 <h1>DES PARTENAIRES INTERNATIONAUX</h1>
     <p>Des entreprises et institutions à la renomée internationale croient en Teklif. Ils proposent des missions aux étudiants, à la recherche de leur futurs collaborateurs.</p>
-    <a href="#" class="btn_txt">En savoir plus </a>
+      <ButtonS/>
 
 
 </div>
@@ -16,8 +16,12 @@
 </template>
 
 <script>
+import ButtonS from "@/components/HOME/Button/ButtonS";
+import Button from "@/components/HOME/Button/ButtonO";
+
 export default {
-  name: "Partenaire"
+  name: "Partenaire",
+  components: {Button, ButtonS}
 }
 </script>
 
@@ -31,6 +35,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+
 
 
 }
@@ -48,25 +53,16 @@ export default {
   color: #000000;
 
 }
-.btn_txt{
 
-  background-color: transparent;
-  color: #000000;
-  border: solid 3px #000000;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 20px;
-  text-decoration: none;
-
-}
 p{
-  margin: 0;
-  width: 50%;
+  margin-bottom: 20px;
+  width: 40%;
   font-size: 20px;
+
 }
 @media screen and (max-width: 1300px) {
   .item_txt{
-    width: 80%;
+    width: 100%;
     height: 50%;
     background-color: rgb(233, 78, 27,0.5);
     display: flex;
@@ -80,6 +76,7 @@ p{
   }
   p{
     font-size: 15px;
+    width: 80%;
   }
 
 

@@ -8,19 +8,19 @@
   <div class="item2">
 
     <div class="card" >
-      <img src="../assets/img2.png" class="card-img-top" alt="...">
+      <img src="../../assets/img2.png" class="card-img-top" alt="...">
       <div class="card-body">
         <p class="card-text">DATA & TECHNOLOGIE</p>
       </div>
     </div>
     <div class="card" >
-      <img src="../assets/img1.png" class="card-img-top" alt="...">
+      <img src="../../assets/img1.png" class="card-img-top" alt="...">
       <div class="card-body">
         <p class="card-text">MARKETING & COMMUNICATION</p>
       </div>
     </div>
     <div class="card">
-      <img src="../assets/img3.png"  class="card-img-top" alt="...">
+      <img src="../../assets/img3.png" class="card-img-top" alt="...">
       <div class="card-body">
         <p class="card-text">SCIENCES & INGÉNIERIE</p>
       </div>
@@ -32,19 +32,19 @@
 
   <div class="item2">
     <div class="card" >
-      <img src="../assets/img4.png" class="card-img-top" alt="...">
+      <img src="../../assets/img4.png" class="card-img-top" alt="...">
       <div class="card-body">
         <p class="card-text">ÉCONOMIE & GESTION</p>
       </div>
     </div>
     <div class="card" >
-      <img src="../assets/img5.png" class="card-img-top" alt="...">
+      <img src="../../assets/img5.png" class="card-img-top" alt="...">
       <div class="card-body">
         <p class="card-text">DESIGN & CRÉATION</p>
       </div>
     </div>
     <div class="card">
-      <img src="../assets/img6.png"  class="card-img-top" alt="...">
+      <img src="../../assets/img6.png" class="card-img-top" alt="...">
       <div class="card-body">
         <p class="card-text">SANTÉ &  BIOLOGIE</p>
       </div>
@@ -76,7 +76,7 @@ export default {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  padding-top: 60px ;
+  padding-top: 100px ;
 }
 .item2{
   display: flex;
@@ -115,6 +115,7 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
 
 }
   .item2{
@@ -128,11 +129,11 @@ h1{
     margin-bottom: 30px;
   }
   h1{
-    font-size: 15px;
+    text-align: center;
+    font-size: 30px;
     height: 100%;
     margin-bottom: 20px;
-    font-weight: 500;
-    line-height: 1.2;
+
 
   }
 

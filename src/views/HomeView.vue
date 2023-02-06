@@ -20,12 +20,14 @@
 // @ is an alias to /src
 
 import navbar from "@/components/navbar";
-import Heros from "@/components/Heros";
-import Solution from "@/components/Solution";
-import Partenaire from "@/components/Partenaire";
-import Domain from "@/components/Domain";
-import Last from "@/components/Last";
-import Footer from "@/components/Footer";
+import Heros from "@/components/HOME/Heros";
+import Solution from "@/components/HOME/Solution";
+import Partenaire from "@/components/HOME/Partenaire";
+
+import Last from "@/components/HOME/Last";
+import Footer from "@/components/HOME/Footer";
+import Domain from "@/components/HOME/Domain";
+
 
 
 

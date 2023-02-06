@@ -33,6 +33,24 @@
             required
         />
       </div>
+      <div class="form-group ">
+        <label>Nom de l'entreprise</label>
+        <input
+            v-model="form.entreprise"
+            class="mission form-control"
+            type="text"
+            required
+        />
+      </div>
+      <div class="form-group ">
+        <label>Durée</label>
+        <input
+            v-model="form.Durée"
+            class="mission form-control"
+            type="text"
+            required
+        />
+      </div>
 
 
       <button type="submit" class="btn btn-success mt-3">
@@ -47,24 +65,21 @@
 
 <script>
 import { createUser } from '@/main'
+
 import Navbar from "@/components/navbar";
 
 export default {
-  components: {Navbar},
+  components: { Navbar },
   data() {
-    return {
-      form: { poste: '', lieux: '', mission: '' },
-    }
+    return { form: { poste: '', lieux: '', mission: '', entreprise:'', Durée:''} };
   },
   methods: {
     onSubmit() {
-      createUser({ ...this.form })
-      this.form.poste = ''
-      this.form.lieux = ''
-      this.form.mission = ''
+      createUser(this.form);
+      this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: ''};
     }
   }
-}
+};
 </script>
 
 <style scoped>

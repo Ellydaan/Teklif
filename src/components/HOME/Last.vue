@@ -1,10 +1,10 @@
 <template>
 <div class="CTN" >
   <div class="ctn">
-    <p>Venez rejoindre l'aventure teklik</p>
+    <p class="Titre"> Venez rejoindre l'aventure teklik</p>
   </div>
   <div class="ctn1">
-    <p>Vous avez des questions ?</p>
+    <p class="ST"> Vous avez des questions ?</p>
   </div>
   <div class="ctn2">
    <div class="gauche">
@@ -29,7 +29,7 @@ export default {
 <style scoped>
 .CTN{
   background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  height: 50vh;
+  height: 100%;
   width: 100%;
   margin-top: 100px;
   display: flex;
@@ -104,6 +104,30 @@ export default {
 .btn:hover::before {
   transform: translateX(0);
 }
+
+@media screen and (max-width: 1300px){
+  .ctn{
+   width: 100%;
+  }
+
+.ctn1{
+
+  font-size: 20px;
+  width: 100%;
+}
+
+  .Titre{
+    font-size: 25px;
+
+  }
+  .ST{
+    text-align: center;
+  }
+}
+
+
+
+
 
 
 </style>
