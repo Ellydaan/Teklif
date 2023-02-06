@@ -53,6 +53,8 @@
       </div>
 
 
+
+
       <button type="submit" class="btn btn-success mt-3">
         Create Mission
       </button>
@@ -68,18 +70,32 @@ import { createUser } from '@/main'
 
 import Navbar from "@/components/navbar";
 
+
+
 export default {
-  components: { Navbar },
+  components: { Navbar, },
   data() {
-    return { form: { poste: '', lieux: '', mission: '', entreprise:'', Durée:''} };
+
+    return { form: { poste: '', lieux: '', mission: '', entreprise:'', Durée:''}
+
+    };
+
+
   },
   methods: {
+
     onSubmit() {
       createUser(this.form);
-      this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: ''};
+      this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: '',};
+      console.log('null');
+
+
     }
+
   }
 };
+
+
 </script>
 
 <style scoped>

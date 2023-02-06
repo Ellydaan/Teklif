@@ -1,17 +1,18 @@
 <template>
 
  <div class="CTN">
-    <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission } in users" :key="id">
+    <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission, Durée} in users" :key="id">
       <div class="temporary_text">
         Place image here
       </div>
       <div class="card_content">
-        <span class="card_title">{{poste}}</span>
-        <span class="card_subtitle">{{lieux}}</span>
-        <p class="card_description">{{mission}}</p>
-        <ButtonS/>
+        <p class="card_title"> Titre : {{poste}}</p>
+        <p class="card_subtitle">Lieux : {{lieux}}</p>
+        <p class="card_description">Mission : {{mission}}</p>
+        <p class="card_duree">Durée : {{Durée}}</p>
 
 
+        <router-link  class="btn" :to="`/Savoir/${id}`">En savoir plus</router-link>
 
 
 
@@ -24,10 +25,10 @@
 
 <script>
 import { useLoadUsers,  } from '@/main'
-import ButtonS from "@/components/HOME/Button/ButtonS";
+
 
 export default {
-  components: {ButtonS},
+  components: {},
   data() {
     return {
       isLoading: true,
@@ -49,22 +50,24 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 80px;
   margin: 0;
   padding-top: 30px;
   background: #f2e6e2;
   border-top: #FFFFFF 2px solid;
-  padding-bottom: 10%;
+  padding-bottom: 15%;
 }
 
 .card {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 450px;
   color: #2e2d31;
   background: #131313;
   overflow: hidden;
   border-radius: 20px;
+
+
 }
 
 .temporary_text {
@@ -91,6 +94,7 @@ export default {
   /* edit here to change the height of the content box */
   transform: translateY(70px);
   transition: transform .25s;
+  gap: 15px;
 }
 
 .card_content::before {
@@ -107,19 +111,14 @@ export default {
 
 .card_title {
   color: #131313;
-  line-height: 15px;
+  line-height: 10px;
 }
 
-.card_subtitle {
-  display: block;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
+
 
 .card_description {
   font-size: 14px;
-  opacity: 0;
-  transition: opacity .5s;
+
 }
 
 .card:hover .card_content {
@@ -129,6 +128,38 @@ export default {
 .card:hover .card_description {
   opacity: 1;
   transition-delay: .25s;
+}
+.btn {
+  display: inline-block;
+
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  border: 3px solid #FF7D5A;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FF7D5A;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  transform: translateX(0);
 }
 
 </style>
