@@ -1,7 +1,6 @@
 <template>
 
  <div class="CTN">
-
     <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission, Durée} in users" :key="id">
       <div class="temporary_text">
         Place image here

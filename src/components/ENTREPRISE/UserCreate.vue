@@ -51,34 +51,6 @@
             required
         />
       </div>
-      <div class="form-group ">
-        <label>Description de la mission</label>
-        <input
-            v-model="form.description"
-            class="mission form-control"
-            type="text"
-            required
-        />
-      </div>
-      <div class="form-group ">
-        <label>Profile recherché</label>
-        <input
-            v-model="form.profile"
-            class="mission form-control"
-            type="text"
-            required
-        />
-      </div>
-      <div class="form-group ">
-        <label>Rémuneration/</label>
-        <input
-            v-model="form.remuneration"
-            class="mission form-control"
-            type="text"
-            required
-        />
-      </div>
-
 
 
 
@@ -104,7 +76,7 @@ export default {
   components: { Navbar, },
   data() {
 
-    return { form: { poste: '', lieux: '', mission: '', entreprise:'', Durée:'',description:"",profile:"",remuneration:""  }
+    return { form: { poste: '', lieux: '', mission: '', entreprise:'', Durée:''}
 
     };
 
@@ -114,7 +86,7 @@ export default {
 
     onSubmit() {
       createUser(this.form);
-      this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: '',description:"",profile:"",remuneration:""  };
+      this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: '',};
       console.log('null');
 
 
