@@ -35,7 +35,7 @@ const db = firebaseApp.firestore()
 Vue.config.productionTip = false
 
 
-const usersCollection = db.collection('users',)
+const CardECollection = db.collection('CardE',)
 const Card = db.collection('Card')
 
 
@@ -59,7 +59,7 @@ export const deleteUser = id => {
 
 export const useLoadUsers = () => {
   const users = ref([])
-  const close = usersCollection.onSnapshot(snapshot => {
+  const close = CardECollection.onSnapshot(snapshot => {
     users.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
   })
   onUnmounted(close)

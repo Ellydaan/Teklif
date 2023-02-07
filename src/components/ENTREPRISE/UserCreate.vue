@@ -82,6 +82,7 @@
 
 
 
+
             <button type="submit" class="btn btn-success mt-3">
               Create Mission
             </button>
@@ -93,9 +94,11 @@
 </template>
 
 <script>
-import { createUser } from '@/main'
-
+import 'firebase/firestore'
 import Navbar from "@/components/navbar";
+import {db,} from "@/main";
+import firebase from "firebase/compat/app";
+
 
 
 
@@ -103,7 +106,8 @@ export default {
   components: { Navbar, },
   data() {
 
-    return { form: { poste: '', lieux: '', mission: '', entreprise:'', Durée:'',description:"",profile:"",remuneration:""  }
+    return {
+      form: { poste: '', lieux: '', mission: '', entreprise:'', Durée:'',description:"",profile:"",remuneration:"", }
 
     };
 
@@ -112,14 +116,19 @@ export default {
   methods: {
 
     onSubmit() {
-      createUser(this.form);
-      this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: '',description:"",profile:"",remuneration:""  };
-      console.log('null');
 
-
-    }
+      db.collection("CardE").add(this.form)
+          .then(() => {
+            this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: '',description:"",profile:"",remuneration:"",image: null  };
+            console.log("ok")
+          })
+          .catch((error) => {
+            console.error(error)
+          })
+    },
 
   }
+
 };
 
 

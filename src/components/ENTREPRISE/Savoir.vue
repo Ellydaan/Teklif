@@ -6,7 +6,7 @@
     <h1 class ="Titre">{{info.poste}}</h1>
     <h2 class ="ST">{{info.lieux}}</h2>
     <p class ="Text">Description de la mission : {{info.mission}}</p>
-      <p class ="Text">Profile rechercher :  Etudiant en informatique, avec des compétences en JavaScript, SQL. Formation école d’informatique (EPITA, EFREI){{info.mission}}</p>
+      <p class ="Text">{{info.profile}}</p>
       </div>
       <div class="box">
         <div class="item1">
