@@ -21,12 +21,15 @@
           <a class="nav-link" href="#">Nos service</a>
         </li>
 
+        <div class="ctn" v-if="isEntreprise" >
+
         <li class="nav-item">
 
-          <router-link to="/Annonce" class="nav-link " v-if="isEntreprise">{{addM}}</router-link>
-          <router-link to="/Annonce" class="nav-link " v-else>{{addM}}</router-link>
-
+          <router-link to="/Annonce" class="nav-link ">{{addM}}</router-link>
         </li>
+
+        </div>
+
 
 
 
@@ -123,6 +126,8 @@ export default {
             this.$router.push('/');
             this.mission = "";
             this.etudiant = "";
+            this.addM = "";
+
             this.name="";
             this.isLoggedIn = false;
             console.log("logout");
