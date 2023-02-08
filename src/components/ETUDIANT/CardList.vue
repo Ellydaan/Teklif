@@ -1,29 +1,25 @@
 <template>
+  <div class="CTNN">
+<div class="CTN">
+  <div class="card" v-for="{ id,prenom, nom, specialite} in Card" :key="id">
 
-      <div class="CTN">
-        <div class="card" v-for="{ id,prenom, nom, specialite} in Card" :key="id">
+    <div class="TXT">
+      <div class="img">
+      </div>
+      <span>{{prenom}}</span>
+      <span>{{nom}}</span>
+      <span>{{specialite}}</span>
+      <router-link :to="`/EnSavoirE/${id}`" class="btn">En savoir plus</router-link>
+    </div>
 
-            <div class="card1">
-              <div class="card-border-top">
-              </div>
-              <div class="img">
-              </div>
-              <div class="Input">
-
-                <P>{{prenom}}</P>
-                <p>{{nom}}</p>
-               <p>{{specialite}}</p>
-
-
-              </div>
-            </div>
-<router-link :to="`/EnSavoirE/${id}`" class="btn">Savoir plus</router-link>
-          </div>
-
-        </div>
+    </div>
 
 
 
+</div>
+
+
+  </div>
 
 </template>
 
@@ -44,124 +40,82 @@ export default {
 </script>
 
 <style scoped>
-.CTN{
+.CTNN{
   display: flex;
-
-  justify-content: space-around;
-  align-items: center;
-  /* flex-flow: row wrap; */
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  background-color: #bbdefb;
-  height: 100vh;
-  padding: 15px;
-  gap: 5px;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 250px;
-  height: 350px;
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  border: none;
-  font-family: inherit;
-}
-.card1{
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  border: none;
-  font-family: inherit;
-}
-.Input{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-top: 5px;
   gap: 20px;
+  background-color: #f2e6e2;
+  width: 100%;
+}
+.CTN {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 60%;
+  padding-left: 25px;
 
+}
+.TXT {
+  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  margin-top: 30px;
+  width: 17em;
+  height: 22.5em;
+  background: #ff7e5a;
+  transition: 1s ease-in-out;
+  clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .card span {
-  font-weight: 600;
+  font-weight: bold;
   color: white;
   text-align: center;
   display: block;
-  padding-top: 10px;
-  font-size: 1.3em;
+  padding-top: 1em;
+  font-size: 1em;
 }
 
-.card .job {
+.card .info {
   font-weight: 400;
   color: white;
   display: block;
   text-align: center;
-  padding-top: 5px;
-  font-size: 1em;
+  padding-top: 0.1em;
+  font-size: 0.72em;
+  margin: 1em;
+  margin-top: 1em;
 }
 
 .card .img {
-  width: 40%;
-  height: 30%;
-  background: #e8e8e8;
-  border-radius: 100%;
-  margin-bottom: 15px;
+  width: 4.8em;
+  height: 4.8em;
+  background: white;
+  border-radius: 15px;
 
 }
 
-.card button {
-  padding: 8px 25px;
-  display: block;
-  margin: auto;
-  border-radius: 8px;
-  border: none;
-  margin-top: 30px;
-  background: #e8e8e8;
-  color: #111111;
-  font-weight: 600;
+
+
+.card a {
+  color: white;
+  transition: .4s ease-in-out;
 }
 
-.card button:hover {
-  background: #212121;
-  color: #ffffff;
+.card a:hover {
+  color: rgb(36, 116, 221);
 }
 
-/* From uiverse.io by @alexruix */
-.input {
-  line-height: 28px;
-  border: 2px solid transparent;
-  border-bottom-color: #777;
-  padding: .2rem 0;
-  outline: none;
-  background-color: transparent;
-  color: #0d0c22;
-  transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
 
-.input:focus, input:hover {
-  outline: none;
-  padding: .2rem 1rem;
-  border-radius: 1rem;
-  border-color: #7a9cc6;
-}
 
-.input::placeholder {
-  color: #777;
-}
 
-.input:focus::placeholder {
-  opacity: 0;
-  transition: opacity .3s;
-}
 
 
 

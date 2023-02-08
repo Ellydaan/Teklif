@@ -78,8 +78,12 @@
                   required
               />
             </div>
+<div class="form-group ">
+              <label>Image</label>
+  <input type="file" ref="myfile">
 
 
+        </div>
 
 
 
@@ -98,12 +102,15 @@ import 'firebase/firestore'
 import Navbar from "@/components/navbar";
 import {db,} from "@/main";
 import firebase from "firebase/compat/app";
+import  { storage } from "@/main"
+import  { ref,uploadBytes } from "firebase/storage"
+
 
 
 
 
 export default {
-  components: { Navbar, },
+  components: { Navbar,},
   data() {
 
     return {
@@ -121,6 +128,12 @@ export default {
           .then(() => {
             this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: '',description:"",profile:"",remuneration:"",image: null  };
             console.log("ok")
+
+            const storageRef = ref(storage, 'folder/myfile.gif');
+            uploadBytes(storageRef,this.$refs.myfile.files[0])
+                .then((snapshot)=> {
+              console.log("uploaded")
+            })
           })
           .catch((error) => {
             console.error(error)
@@ -141,7 +154,7 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #f2e6e2;
-  height: 100vh;
+  height: 100%;
   border-top: #FFFFFF 2px solid;
 }
 .card1{

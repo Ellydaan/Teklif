@@ -3,7 +3,7 @@
  <div class="CTN">
     <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission, Durée,profile,remuneration} in users" :key="id">
       <div class="temporary_text">
-        Place image here
+        <CloudImage path="folder/myfile.gif"/>
       </div>
       <div class="card_content">
         <p class="card_title"> Titre : {{poste}}</p>
@@ -29,10 +29,11 @@
 <script>
 import { useLoadUsers,  } from '@/main'
 import UploadImage from "@/components/ENTREPRISE/UploadImage";
+import CloudImage from "@/components/ENTREPRISE/CloudImage";
 
 
 export default {
-  components: {UploadImage},
+  components: {UploadImage,CloudImage},
   data() {
     return {
       isLoading: true,
@@ -51,6 +52,7 @@ export default {
 <style scoped>
 .CTN{
   width: 100%;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
