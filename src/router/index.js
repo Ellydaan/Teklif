@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Edit from "@/views/Edit";
+import firebase from "firebase/compat/app";
+
+
+
 
 Vue.use(VueRouter)
 
@@ -51,9 +54,10 @@ const routes = [
   {
     path: '/Savoir/:id',
     name: 'Savoir',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Ensavoir.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Ensavoir.vue'),
+    meta: { requiresAuth: true }
 
-  },
+},
 
   {
     path: '/Entreprise',
@@ -73,6 +77,12 @@ const routes = [
     name: 'AddC',
     component: () => import(/* webpackChunkName: "about" */ '../views/AddC.vue')
 
+  },
+  {
+    path: '/EnSavoirE/:id',
+    name: 'EnSavoirE',
+    component: () => import(/* webpackChunkName: "about" */ '../views/EnSavoirE.vue')
+
   }
 
 
@@ -87,5 +97,30 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // This route requires authentication. Check if the user is signed in.
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in. Allow access to the route.
+        next();
+      } else {
+        // User is not signed in. Redirect to the login page.
+        next({
+          path: '/login',
+          query: { redirect: to.fullPath }
+        });
+      }
+    });
+  } else {
+    // This route does not require authentication. Allow access.
+    next();
+  }
+});
+
+
+
 
 export default router

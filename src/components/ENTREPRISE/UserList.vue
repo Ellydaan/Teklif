@@ -20,6 +20,7 @@
 
       </div>
     </article>
+
  </div>
 
 
@@ -27,10 +28,11 @@
 
 <script>
 import { useLoadUsers,  } from '@/main'
+import UploadImage from "@/components/ENTREPRISE/UploadImage";
 
 
 export default {
-  components: {},
+  components: {UploadImage},
   data() {
     return {
       isLoading: true,

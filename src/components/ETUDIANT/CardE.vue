@@ -39,7 +39,7 @@ export default {
             specialite: this.specialite
           });
         db.collection('Card').doc(user.uid).set({ prenom: this.prenom, nom: this.nom, specialite: this.specialite });
-          alert("specialite ajouté");
+
 
       });
     }
@@ -60,6 +60,7 @@ export default {
   }
 };
 </script>
+
 
 <style scoped>
 .CTN{

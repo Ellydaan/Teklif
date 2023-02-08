@@ -45,8 +45,12 @@ export const createUser = user => {
 }
 
 export const getUser = async id => {
-  const user = await usersCollection.doc(id).get()
+  const user = await CardECollection.doc(id).get()
   return user.exists ? user.data() : null
+}
+export const getE = async id => {
+  const card = await Card.doc(id).get()
+  return card.exists ? card.data() : null
 }
 
 export const updateUser = (id, user) => {

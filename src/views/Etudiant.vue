@@ -1,25 +1,51 @@
 <template>
-
-<div class="CTN">
-  <Navbar/>
-  <div class="ctn">
-    <div class="ctn1">
-      <router-link to="/AddC" class="btn" >Ajouter votre Card</router-link>
+  <div class="CTN" >
+    <Navbar/>
+    <div class="ctn" v-if="showButton">
+      <div class="ctn1">
+        <router-link  to="/AddC" class="btn">Ajouter votre Card</router-link>
+      </div>
     </div>
+    <CardsList/>
   </div>
-<CardsList/>
-</div>
-
 </template>
+
 
 <script>
 import Navbar from "@/components/navbar";
 import CardsList from "@/components/ETUDIANT/CardList";
+import firebase from "firebase/compat/app";
+import {db} from "@/main";
 
 export default {
   name: "Etudiant",
   components: {Navbar,CardsList},
+  data() {
+    return {
+      prenom: "",
+      nom: "",
+      specialite: "",
+      showButton: false
+    };
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        db.collection("etudiant").doc(user.uid).get()
+            .then((doc) => {
+              if (doc.exists) {
+                this.prenom = doc.data().prenom;
+                this.nom = doc.data().nom;
+                this.specialite = doc.data().specialite;
+
+                this.showButton = !this.specialite;
+              }
+            });
+      }
+    });
+  }
 }
+
 </script>
 
 <style scoped>
