@@ -78,9 +78,8 @@
                   required
               />
             </div>
-            <div>
 
-            </div>
+
 
 
 
@@ -100,14 +99,12 @@ import Navbar from "@/components/navbar";
 import {db,} from "@/main";
 import firebase from "firebase/compat/app";
 
-import 'firebase/storage';
 
 
 
 export default {
   components: { Navbar, },
   data() {
-    firebase.storage().ref()
 
     return {
       form: { poste: '', lieux: '', mission: '', entreprise:'', Durée:'',description:"",profile:"",remuneration:"", }
@@ -130,7 +127,6 @@ export default {
           })
     },
 
-
   }
 
 };
@@ -145,9 +141,8 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: #f2e6e2;
-  height: 100%;
+  height: 100vh;
   border-top: #FFFFFF 2px solid;
-  padding-top: 30px;
 }
 .card1{
   width: 50%;

@@ -5,20 +5,8 @@
       <div class="ctn">
     <h1 class ="Titre">{{info.poste}}</h1>
     <h2 class ="ST">{{info.lieux}}</h2>
-    <div class ="Text">
-        <p class="txt">
-      Description de la mission :
-        </p>
-        <p class="text" >{{info.profile}} </p>
-
-
-    </div>
-
-      <div class ="Text">
-        <p class="txt">Profile rechercher : </p>
-
-        <p class="text" > {{info.profile}} </p>
-      </div>
+    <p class ="Text">Description de la mission : {{info.mission}}</p>
+      <p class ="Text">{{info.profile}}</p>
       </div>
       <div class="box">
         <div class="item1">
@@ -35,7 +23,7 @@
         </div>
         <div class="item3">
           <div class="left">
-           <button class="btn">Postuler</button>
+            <h1>Postuler</h1>
 
           </div>
         </div>
@@ -126,21 +114,10 @@ body#tinymce {
   padding-left: 45px;
 }
 .Text{
-  display: flex;
-  flex-direction: row;
   font-size: 20px;
   font-weight: 400;
   color: #2e2d31;
-
-}
-
-.txt{
-  font-weight: bold;
-  font-size: 20px;
-
-
-  padding: 0 10px;
-  text-align: center;
+  padding: 0 30px;
 }
 .box{
   display: flex;
@@ -206,19 +183,6 @@ body#tinymce {
   color: #000000;
   padding: 0 30px;
   text-align: center;
-}
-.btn{
-  width: 200px;
-  height: 50px;
-  border-radius: 45px;
-  background-color: #FF7D5A;
-  color: #FFFFFF;
-  font-size: 20px;
-  font-weight: 400;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: 0.3s;
 }
 
 </style>
