@@ -20,6 +20,13 @@
 
       </div>
     </article>
+   <div id="bob">
+     <Cloudimage path="folder/myfile.gif"/>
+     <Cloudimage path="folder/dog.jpeg"/>
+     <Cloudimage path="folder/myfile.gif"/>
+     <input type="file" ref="myfile">
+     <button @click="upload">upload</button>
+   </div>
 
  </div>
 
@@ -29,10 +36,15 @@
 <script>
 import { useLoadUsers,  } from '@/main'
 import UploadImage from "@/components/ENTREPRISE/UploadImage";
+import CloudImage from "@/components/ENTREPRISE/Cloudimage";
+import 'firebase/storage';
+import firebase from "firebase/compat/app";
+
+
 
 
 export default {
-  components: {UploadImage},
+  components: {UploadImage,CloudImage},
   data() {
     return {
       isLoading: true,
@@ -43,6 +55,14 @@ export default {
     const users = useLoadUsers()
     return { users,}
 
+  },
+  methods: {
+    async upload() {
+      const image = this.$refs.myfile.files[0];
+      const imageRef = firebase.storage().ref().child(`images/${image.name}`);
+      await imageRef.put(image);
+      console.log("ok")
+    }
   }
 
 }

@@ -81,7 +81,8 @@ const routes = [
   {
     path: '/EnSavoirE/:id',
     name: 'EnSavoirE',
-    component: () => import(/* webpackChunkName: "about" */ '../views/EnSavoirE.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/EnSavoirE.vue'),
+    meta: { requiresAuth: true }
 
   }
 

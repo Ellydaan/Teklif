@@ -1,6 +1,7 @@
 <template>
 
       <div class="CTN">
+
         <div class="card" v-for="{ id,prenom, nom, specialite} in Card" :key="id">
 
             <div class="card1">
@@ -19,8 +20,8 @@
             </div>
 <router-link :to="`/EnSavoirE/${id}`" class="btn">Savoir plus</router-link>
           </div>
-
         </div>
+
 
 
 
@@ -45,19 +46,15 @@ export default {
 
 <style scoped>
 .CTN{
+
   display: flex;
-
-  justify-content: space-around;
-  align-items: center;
-  /* flex-flow: row wrap; */
-  flex-direction: row;
   flex-wrap: wrap;
-
-  background-color: #bbdefb;
-  height: 100vh;
-  padding: 15px;
-  gap: 5px;
+  margin: auto;
+  width: 70%;
+  gap: 20px;
+  padding-top: 30px;
 }
+
 
 .card {
   display: flex;
