@@ -10,6 +10,7 @@
           <input v-model="prenom" placeholder="Prénom" type="text" class="input" required>
           <input v-model="nom" placeholder="Nom" type="text" class="input" required>
           <input v-model="specialite" placeholder="Spécialité" type="text" class="input" required>
+            <input type="file" ref="myfile">
 
           <button @click="addSpecialite">Click</button>
         </div>
@@ -22,6 +23,8 @@
 <script>
 import {db} from "@/main";
 import firebase from "firebase/compat/app";
+import  { storage } from "@/main"
+import  { ref,uploadBytes } from "firebase/storage"
 
 export default {
   name: "CardE",
@@ -29,16 +32,23 @@ export default {
     return {
       prenom: "",
       nom: "",
-      specialite: ""
+      specialite: "",
+      image: null,
     };
   },
   methods: {
     addSpecialite() {
+
+      const storageRef = ref(storage, 'Etudiant/' + this.$refs.myfile.files[0].name);
+      uploadBytes(storageRef, this.$refs.myfile.files[0])
       firebase.auth().onAuthStateChanged((user) => {
           db.collection("etudiant").doc(user.uid).update({
-            specialite: this.specialite
-          });
-        db.collection('Card').doc(user.uid).set({ prenom: this.prenom, nom: this.nom, specialite: this.specialite });
+            specialite: this.specialite,image: storageRef.fullPath});
+        db.collection('Card').doc(user.uid).set({ prenom: this.prenom, nom: this.nom, specialite: this.specialite ,image: storageRef.fullPath})
+            .then(() => {
+              this.$router.push("/");
+            });
+
 
 
       });

@@ -1,5 +1,5 @@
 <template>
-  <img style="height:20vh" :src="url" alt="" />
+  <img  class = "img" :src="url" alt="" />
 </template>
 <script>
 import { storage } from '@/main'
@@ -21,3 +21,10 @@ export default {
   }
 };
 </script>
+<style scoped>
+.img{
+  height: 50vh;
+  width: 100%;
+
+}
+</style>

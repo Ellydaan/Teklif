@@ -83,6 +83,7 @@
   <input type="file" ref="myfile">
 
 
+
         </div>
 
 
@@ -94,6 +95,8 @@
         </div>
       </div>
     </div>
+
+
   </div>
 </template>
 
@@ -114,7 +117,16 @@ export default {
   data() {
 
     return {
-      form: { poste: '', lieux: '', mission: '', entreprise:'', Durée:'',description:"",profile:"",remuneration:"", }
+      form: {
+        poste: '',
+        lieux: '',
+        mission: '',
+        entreprise:'',
+        Durée:'',
+        description:"",
+        profile:"",
+        remuneration:"",
+        image: null }
 
     };
 
@@ -123,21 +135,21 @@ export default {
   methods: {
 
     onSubmit() {
+      const storageRef = ref(storage, 'Entreprise/' + this.$refs.myfile.files[0].name);
+      uploadBytes(storageRef, this.$refs.myfile.files[0])
 
-      db.collection("CardE").add(this.form)
+      db.collection("CardE").add({...this.form, image: storageRef.fullPath } )
           .then(() => {
             this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: '',description:"",profile:"",remuneration:"",image: null  };
             console.log("ok")
 
-            const storageRef = ref(storage, 'folder/myfile.gif');
-            uploadBytes(storageRef,this.$refs.myfile.files[0])
-                .then((snapshot)=> {
-              console.log("uploaded")
-            })
           })
+
           .catch((error) => {
             console.error(error)
           })
+
+
     },
 
   }

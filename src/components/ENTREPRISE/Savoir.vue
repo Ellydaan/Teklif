@@ -23,7 +23,7 @@
         </div>
         <div class="item3">
           <div class="left">
-            <h1>Postuler</h1>
+           <button class="btn">Postuler</button>
 
           </div>
         </div>

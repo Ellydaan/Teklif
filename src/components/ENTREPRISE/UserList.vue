@@ -1,12 +1,18 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
 
  <div class="CTN">
-    <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission, Durée,profile,remuneration} in users" :key="id">
-      <div class="temporary_text">
-        <CloudImage path="folder/myfile.gif"/>
+    <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission, Durée,profile,remuneration,image} in users" :key="id">
+      <div class="img">
+        <CloudImage v-bind:path="image" />
+
+
+
+
       </div>
       <div class="card_content">
-        <p class="card_title"> Titre : {{poste}}</p>
+        <p class="card_title">
+          Titre : {{poste}}
+        </p>
         <p class="card_subtitle">Lieux : {{lieux}}</p>
         <p class="card_description">Mission : {{mission}}</p>
         <p class="card_duree">Durée : {{Durée}}</p>
@@ -28,12 +34,12 @@
 
 <script>
 import { useLoadUsers,  } from '@/main'
-import UploadImage from "@/components/ENTREPRISE/UploadImage";
+;
 import CloudImage from "@/components/ENTREPRISE/CloudImage";
 
 
 export default {
-  components: {UploadImage,CloudImage},
+  components: {CloudImage},
   data() {
     return {
       isLoading: true,
@@ -44,7 +50,9 @@ export default {
     const users = useLoadUsers()
     return { users,}
 
-  }
+
+  },
+
 
 }
 </script>
@@ -76,19 +84,17 @@ export default {
 
 }
 
-.temporary_text {
-  font-weight: bold;
-  font-size: 24px;
-  padding: 6px 12px;
-  color: #f8f8f8;
-}
+
 
 .card_title {
   font-weight: bold;
   font-size: 20px;
+
 }
 
 .card_content {
+  text-align: center;
+
   position: absolute;
   left: 0;
   bottom: 0;

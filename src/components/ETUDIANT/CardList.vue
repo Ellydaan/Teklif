@@ -1,14 +1,16 @@
 <template>
   <div class="CTNN">
 <div class="CTN">
-  <div class="card" v-for="{ id,prenom, nom, specialite} in Card" :key="id">
+  <div class="card" v-for="{ id,prenom, nom, specialite,image} in Card" :key="id">
 
     <div class="TXT">
       <div class="img">
+        <CloudImage v-bind:path="image" />
       </div>
       <span>{{prenom}}</span>
       <span>{{nom}}</span>
       <span>{{specialite}}</span>
+
       <router-link :to="`/EnSavoirE/${id}`" class="btn">En savoir plus</router-link>
     </div>
 
@@ -26,8 +28,11 @@
 
 <script>
 import { useLoadCard,} from '@/main'
+import CloudImage from "@/components/ENTREPRISE/CloudImage";
+
 export default {
   name: "CardList",
+  components: {CloudImage},
 
   setup() {
     const Card = useLoadCard()
