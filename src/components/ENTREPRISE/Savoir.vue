@@ -2,12 +2,27 @@
   <div  class="CTN" >
 
     <div id="demoObject">
+
+      <div class="haut">
       <div class="ctn">
     <h1 class ="Titre">{{info.poste}}</h1>
     <h2 class ="ST">{{info.lieux}}</h2>
     <p class ="Text">Description de la mission : {{info.mission}}</p>
       <p class ="Text">{{info.profile}}</p>
       </div>
+      <div class="form">
+        <div class="form1">
+
+        <input type="text" placeholder="Nom" v-model="form.nom" />
+        <input type="text" placeholder="Prénom" v-model="form.prenom" />
+        <input type="text" placeholder="Email" v-model="form.email" />
+        <input type="text" placeholder="Téléphone" v-model="form.tel" />
+          <input type="file" ref="myfile">
+
+        </div>
+      </div>
+      </div>
+
       <div class="box">
         <div class="item1">
           <div class="right">
@@ -23,7 +38,7 @@
         </div>
         <div class="item3">
           <div class="left">
-           <button class="btn">Postuler</button>
+            <button @click="OnSubmit">déposer ton CV</button>
 
           </div>
         </div>
@@ -41,16 +56,29 @@
 
 <script>
 
-import {getUser} from '@/main'
+import {db, getUser, storage, useLoadUsers} from '@/main'
+import firebase from "firebase/compat/app";
+import  { ref,uploadBytes } from "firebase/storage"
+import Navbar from "@/components/navbar";
 
 export default {
+
   components: {Navbar},
   data() {
     return {
       isLoading: true,
       info: {},
+      form: {
+        prenom: '',
+        nom: '',
+        email: '',
+        tel: '',
+        image: null,
+        post: '',
+      }
     }
   },
+
   async mounted() {
     // const route = useRoute()
     const userId = this.$route.params.id
@@ -58,12 +86,40 @@ export default {
     this.isLoading = false
     console.log(user, userId)
     this.info = user
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        db.collection("etudiant").doc(user.uid).get()
+            .then((doc) => {
+              if (doc.exists) {
+                this.form.prenom = doc.data().prenom;
+                this.form.nom = doc.data().nom;
+              }
+
+            });
+      }
+    });
+
   },
+
+  methods: {
+    async OnSubmit() {
+      const storageRef = ref(storage, 'EtudiantToEntreprise/' + this.$refs.myfile.files[0].name);
+      await uploadBytes(storageRef, this.$refs.myfile.files[0])
+
+      await db.collection("EtudiantToEntreprise").add({...this.form, image: storageRef.fullPath,post: this.info.poste})
+      console.log("tout est bon")
+    },
+  },
+
+
+
 
 
 }
 
-import Navbar from "@/components/navbar";
+
+
+
 </script>
 
 <style scoped>
@@ -77,6 +133,28 @@ import Navbar from "@/components/navbar";
   align-items: center;
 
 }
+.haut{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+}
+.form{
+  width:  426px;
+  height: 100%;
+  border-radius: 0 45px 0 0;
+ background-color: #FF7D5A;
+}
+.form1{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  padding: 0 20px;
+}
 .ctn{
  margin: 15px 20px ;
 
@@ -87,7 +165,6 @@ import Navbar from "@/components/navbar";
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   width: 80%;
   -webkit-box-shadow: 15px 6px 9px 1px rgba(0,0,0,0.31);
   box-shadow: 15px 6px 9px 1px rgba(0,0,0,0.31);

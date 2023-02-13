@@ -41,12 +41,15 @@ export default {
 
       const storageRef = ref(storage, 'Etudiant/' + this.$refs.myfile.files[0].name);
       uploadBytes(storageRef, this.$refs.myfile.files[0])
+
       firebase.auth().onAuthStateChanged((user) => {
+
           db.collection("etudiant").doc(user.uid).update({
             specialite: this.specialite,image: storageRef.fullPath});
+
         db.collection('Card').doc(user.uid).set({ prenom: this.prenom, nom: this.nom, specialite: this.specialite ,image: storageRef.fullPath})
             .then(() => {
-              this.$router.push("/");
+              this.$router.push("/Etudiant");
             });
 
 

@@ -83,9 +83,7 @@ const routes = [
     name: 'EnSavoirE',
     component: () => import(/* webpackChunkName: "about" */ '../views/EnSavoirE.vue')
 
-  }
-
-
+  },
 
 
 

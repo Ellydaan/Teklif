@@ -1,13 +1,9 @@
-<template xmlns="http://www.w3.org/1999/html">
+<template >
 
  <div class="CTN">
-    <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission, Durée,profile,remuneration,image} in users" :key="id">
+    <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission, Durée,image} in users" :key="id">
       <div class="img">
         <CloudImage v-bind:path="image" />
-
-
-
-
       </div>
       <div class="card_content">
         <p class="card_title">
@@ -17,12 +13,7 @@
         <p class="card_description">Mission : {{mission}}</p>
         <p class="card_duree">Durée : {{Durée}}</p>
 
-
-
-
         <router-link  class="btn" :to="`/Savoir/${id}`">En savoir plus</router-link>
-
-
 
       </div>
     </article>
@@ -34,7 +25,6 @@
 
 <script>
 import { useLoadUsers,  } from '@/main'
-;
 import CloudImage from "@/components/ENTREPRISE/CloudImage";
 
 
@@ -48,9 +38,7 @@ export default {
 
   setup() {
     const users = useLoadUsers()
-    return { users,}
-
-
+    return { users }
   },
 
 
