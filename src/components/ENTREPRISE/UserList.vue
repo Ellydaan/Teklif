@@ -89,7 +89,7 @@ export default {
   /* edit the width to fit card */
   width: 100%;
   padding: 20px;
-  background: #f2f2f2;
+  background: #FF7D5A;
   border-top-left-radius: 20px;
   /* edit here to change the height of the content box */
   transform: translateY(70px);
@@ -106,7 +106,7 @@ export default {
   height: 100px;
   transform: rotate(-175deg);
   border-radius: 50%;
-  box-shadow: inset 48px 48px #f2f2f2;
+  box-shadow: inset 48px 48px #FF7D5A;
 }
 
 .card_title {

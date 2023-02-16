@@ -38,7 +38,7 @@
         </div>
         <div class="item3">
           <div class="left">
-            <button @click="OnSubmit">déposer ton CV</button>
+            <button @click="OnSubmit">Postuler</button>
 
           </div>
         </div>
@@ -260,6 +260,14 @@ body#tinymce {
   color: #000000;
   padding: 0 30px;
   text-align: center;
+}
+input{
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  padding: 0 20px;
+  margin: 10px 0;
 }
 
 </style>

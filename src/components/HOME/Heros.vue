@@ -105,7 +105,7 @@ h1{
   justify-content: center;
   align-items: center;
 }
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 960px) {
   .flex-container {
     flex-direction: column;
     height: 100vh;
@@ -131,4 +131,11 @@ h1{
 
 
 }
+@media screen and (max-width: 860px) and (orientation: landscape) {
+  .flex-container {
+    flex-direction: row;
+    height: 100vh;
+  }
+}
+
 </style>
