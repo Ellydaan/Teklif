@@ -12,12 +12,9 @@ export default {
 
 <style scoped>
 .CTN{
-  background-color: #000;
-  color: #fff;
-  height: 100px;
-  width: 100%;
-  text-align: center;
-  padding-top: 30px;
+  background: rgb(91,14,206);
+  background: linear-gradient(126deg, rgba(91,14,206,1) 0%, rgba(163,57,228,1) 100%);
+  height: 100vh;
 }
 
 </style>

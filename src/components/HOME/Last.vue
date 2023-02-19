@@ -1,20 +1,24 @@
 <template>
-<div class="CTN" >
-  <div class="ctn">
-    <p class="Titre"> Venez rejoindre l'aventure teklik</p>
-  </div>
-  <div class="ctn1">
-    <p class="ST"> Vous avez des questions ?</p>
-  </div>
-  <div class="ctn2">
-   <div class="gauche">
+<div class="CTN">
+  <div class="item1">
+    <img src="../../assets/fin.png" alt="fin">
 
-     <a class="btn" href="#">I am a button</a>
-   </div>
-<div class="droite">
+  </div>
+  <div class="item2">
+    <h1>Rejoignez le reseaux Teklif</h1>
 
-  <a class="btn" href="#">I am a button</a>
-</div>
+  </div>
+  <div class="item3">
+    <div class="btn">
+      <button class="mission">
+        Déposer une mision
+      </button>
+      <button class="etudiant">
+        Déposer une mision
+      </button>
+
+    </div>
+
   </div>
 
 </div>
@@ -28,101 +32,68 @@ export default {
 
 <style scoped>
 .CTN{
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  height: 100%;
-  width: 100%;
-  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+
+}
+.item2{
+  text-align: center;
+}
+button {
+  border: none;
+  background-color: seagreen;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 500;
+  width: 30%;
+  height: 70px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transform: translate(1) translate(0, 0);
+  transition: transform 225ms, box-shadow 225ms;
+}
+
+button:hover {
+  transform: scale(1.05) translate(0, -0.15rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.35);
+}
+
+button:active {
+  transform: scale(1) translate(0, 0.15rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.mission {
+  width: 40%;
+  height: 70px;
+  background-color: #5B03E4;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.etudiant {
+  width: 40%;
+  height: 70px;
+  background-color: #C03AFE;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.item3{
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
+  margin-top: 50px;
 
 }
-.ctn{
-  text-align: center;
-  font-size:50px ;
-  width: 50%;
-}
-
-.ctn1{
-
-  font-size:40px ;
-
-}
-.ctn2{
-  display: flex;
-
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 15px;
-  gap: 20px;
-
-}
-.gauche{
-
-  text-align: center;
-
-}
-.droite{
-
-  text-align: center;
-
-}
-
 .btn {
-
-  display: inline-block;
-  padding: 0.9rem 1.8rem;
-  font-size: 16px;
-  font-weight: 700;
-  color: white;
-  cursor: pointer;
-  position: relative;
-  background-color: black;
-  text-decoration: none;
-  overflow: hidden;
-  z-index: 1;
-  font-family: inherit;
-}
-
-.btn::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(252, 70, 100);
-  transform: translateX(-100%);
-  transition: all .3s;
-  z-index: -1;
-}
-
-.btn:hover::before {
-  transform: translateX(0);
-}
-
-@media screen and (max-width: 1300px){
-  .ctn{
-   width: 100%;
-  }
-
-.ctn1{
-
-  font-size: 20px;
-  width: 100%;
-}
-
-  .Titre{
-    font-size: 25px;
-
-  }
-  .ST{
-    text-align: center;
-  }
+  display: flex;
+  justify-content: center;
+  width: 35%;
+  height: 50%;
+  gap: 40px;
+  padding: 0;
 }
 
 

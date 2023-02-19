@@ -45,7 +45,7 @@
 
 
     </span>
-        <button class="BTN" v-if="isLoggedIn" >{{name}}<img src="../assets/icons8-user-60.png" alt="user"></button>
+        <button class="BTN" v-if="isLoggedIn" >{{name}}</button>
 
       </div>
     </div>
@@ -144,12 +144,16 @@ export default {
 
 
 <style scoped>
+.navbar{
+  padding: 0 10px 0 10px;
+}
     .logo{
       width: 150px;
       height: 10%;
     }
     .bg-light{
-      background-color: #F2E6E2 !important;
+      background: rgb(91,14,206);
+      background: linear-gradient(126deg, rgba(91,14,206,1) 0%, rgba(163,57,228,1) 100%);
     }
     .nav-link:hover{
       color: #FF7D5A !important;
@@ -164,7 +168,8 @@ export default {
 
     }
     .myButton {
-      background-color:#ff7e5a;
+      background: rgb(91,14,206);
+      background: linear-gradient(126deg, rgba(91,14,206,1) 0%, rgba(163,57,228,1) 100%);
       border-radius:28px;
       border:1px solid #ff7e5a;
       display:inline-block;
