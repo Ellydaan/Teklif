@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <router-link to="/" class="navbar-brand" href="#"><img class="logo" src="../assets/logo_tek.png" alt="logo_tek"> </router-link>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler btnn " type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
@@ -38,7 +38,7 @@
       <span class="navbar-text">
 
 <!--quand t connecter -->
-    <button class="myButton"  v-if="isLoggedIn" @click="logout" >Déconnexion </button>
+    <button class="myButton"  v-if="isLoggedIn" @click="logout" ><p>Déconnexion</p> </button>
          <router-link class="myButton" to="/Login" v-else >Connexion </router-link>
     </span>
         <span class="navbar-text">
@@ -183,20 +183,12 @@ export default {
       position:relative;
       top:1px;
     }
-    .connect{
-
-      text-decoration: none;
-    }
-    .connect:hover{
-      color: #FF7D5A !important;
-    }
-    .Ann{
-      text-decoration: none;
-      color : #000000;
-    }
     .BTN{
       background-color: transparent;
       border: none;
+    }
+    p{
+      margin: 0;
     }
 
 

@@ -10,6 +10,13 @@
     <p class ="Text">Description de la mission : {{info.mission}}</p>
       <p class ="Text">{{info.profile}}</p>
       </div>
+
+
+
+
+
+
+
       <div class="form">
         <div class="form1">
 
@@ -61,6 +68,7 @@ import firebase from "firebase/compat/app";
 import  { ref,uploadBytes } from "firebase/storage"
 import Navbar from "@/components/navbar";
 
+
 export default {
 
   components: {Navbar},
@@ -75,6 +83,7 @@ export default {
         tel: '',
         image: null,
         post: '',
+        emailE: '',
       }
     }
   },
@@ -106,9 +115,39 @@ export default {
       const storageRef = ref(storage, 'EtudiantToEntreprise/' + this.$refs.myfile.files[0].name);
       await uploadBytes(storageRef, this.$refs.myfile.files[0])
 
-      await db.collection("EtudiantToEntreprise").add({...this.form, image: storageRef.fullPath,post: this.info.poste})
+      await db.collection("EtudiantToEntreprise").add({...this.form, image: storageRef.fullPath,post: this.info.poste, emailE: this.info.emailE})
       console.log("tout est bon")
     },
+    async envoyerCV() {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'votre_email@gmail.com',
+          pass: 'votre_mot_de_passe'
+        }
+      });
+
+      const mailOptions = {
+        from: 'votre_email@gmail.com',
+        to: this.info.emailE,
+        subject: 'Nouvelle candidature',
+        text: 'Bonjour,\n\nVous avez reçu une nouvelle candidature pour le poste ' + this.info.poste + '. Veuillez trouver ci-joint le CV de la personne intéressée.\n\nCordialement,\n\nVotre entreprise',
+        attachments: [
+          {
+            filename: this.$refs.myfile.files[0].name,
+            path: this.$refs.myfile.files[0]
+          }
+        ]
+      };
+
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('E-mail envoyé : ' + info.response);
+        }
+      });
+    }
   },
 
 

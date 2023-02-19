@@ -7,9 +7,9 @@
       <div class="img">
         <CloudImage v-bind:path="image" />
       </div>
-      <span>{{prenom}}</span>
-      <span>{{nom}}</span>
-      <span>{{specialite}}</span>
+      <p>{{prenom}}</p>
+      <p>{{nom}}</p>
+      <p>{{specialite}}</p>
 
       <router-link :to="`/EnSavoirE/${id}`" class="btn">En savoir plus</router-link>
     </div>

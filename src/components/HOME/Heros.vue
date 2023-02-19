@@ -1,27 +1,27 @@
 <template>
   <div class="CTN">
-
-  <div class="flex-container">
     <div class="item1">
-      <div class="item_txt">
+      <div class="titre">
+        <h1>Teklif, c’est avant tout une opportunité </h1>
+        <h2>
+          Rejoignez le réseau Teklif, où étudiants et entreprises
+          se retrouvent pour collaborer</h2>
+        <div class="btn">
+        <button class="mission">
+          Déposer une mision
+        </button>
+          <button class="etudiant">
+            Déposer une mision
+          </button>
 
-      <p>Je suis une entreprise</p>
-      <h1>JE CHERCHE UN ETUDIANT</h1>
-        <p>dynamique et qualifié pour répondre à mon besoin</p>
-        <ButtonO/>
-        </div>
+      </div>
+      </div>
+    </div>
+    <div class="item2">
 
     </div>
-    <div class="item2"> <div class="item_txt">
-      <p>Je suis étudiant</p>
-      <h1>JE CHERCHE UNE ENTREPRISE</h1>
-      <p>rapide et rémunérée, dans mon domaine d’étude</p>
-      <ButtonB/>
-
-    </div></div>
-
   </div>
-  </div>
+
 </template>
 
 <script>
@@ -35,101 +35,115 @@ export default {
 </script>
 
 <style scoped>
-
-
-.flex-container {
+.CTN {
+  flex-wrap: wrap;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  height: 95vh;
+height: 100vh;
   width: 100%;
-  margin-bottom: 60px;
 
 
+background-image: url("../../assets/hdr.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
 
 }
 .item1 {
-
-  color: white;
   width: 50%;
-  background:url(../../assets/item1.png) no-repeat ;
-  height: 90vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
-}
-p{
-  margin-bottom: 15px ;
-}
-h1{
-  font-size: 2rem
-
-}
-.item_txt{
-  text-align: center;
-  width: 60%;
-  height: 50%;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
 
 }
+.titre {
+  width: 80%;
+  height: 50%;
 
-
-.btn_txt{
-  background-color: transparent;
-  color: #FFFFFF;
-  border: solid 3px #FFFFFF;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 20px;
-  text-decoration: none;
-
-}
-
-
-.item2 {
-
-  color: white;
-  width: 50%;
-  background:url(../../assets/item2.png)  no-repeat ;
-
-
-  height: 90vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+flex-direction: column;
+
+
+
 }
+.item2 {
+  width: 50%;
+  height: 100%;
+
+}
+button {
+  border: none;
+  background-color: seagreen;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 500;
+ width: 30%;
+  height: 70px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transform: translate(1) translate(0, 0);
+  transition: transform 225ms, box-shadow 225ms;
+}
+
+button:hover {
+  transform: scale(1.05) translate(0, -0.15rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.35);
+}
+
+button:active {
+  transform: scale(1) translate(0, 0.15rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #000000;
+ margin-bottom: 20px;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 80px;
+}
+.btn {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  height: 50%;
+  gap: 40px;
+  padding: 0;
+}
+.mission {
+  width: 40%;
+  height: 70px;
+  background-color: #5B03E4;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+.etudiant {
+  width: 40%;
+  height: 70px;
+  background-color: #C03AFE;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+
+
+
 @media screen and (max-width: 960px) {
   .flex-container {
     flex-direction: column;
     height: 100vh;
-
-
-
   }
-  .item1 {
-    width: 100%;
-    height: 100vh;
-  }
-  .item2 {
-    width: 100%;
-    height: 100vh;
-  }
-  .item_txt{
-    width: 90%;
-    height: 70%;
-  }
-  h1{
-    font-size: 1.5rem;
-  }
-
-
 }
 @media screen and (max-width: 860px) and (orientation: landscape) {
   .flex-container {

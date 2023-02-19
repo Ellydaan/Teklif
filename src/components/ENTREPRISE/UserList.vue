@@ -1,49 +1,53 @@
-<template >
-
- <div class="CTN">
-    <article class="card" v-if="isLoading" v-for="{ id,poste, lieux,mission, Durée,image} in users" :key="id">
+<template>
+  <div class="CTN">
+    <label for="missionFilter">Filtrer par mission:</label>
+    <input id="missionFilter" v-model="filtreMission">
+    <article class="card" v-if="isLoading" v-for="{ id, poste, lieux, mission, duree, image } in filteredUsers" :key="id">
       <div class="img">
         <CloudImage v-bind:path="image" />
       </div>
       <div class="card_content">
         <p class="card_title">
-          Titre : {{poste}}
+          Titre : {{ poste }}
         </p>
-        <p class="card_subtitle">Lieux : {{lieux}}</p>
-        <p class="card_description">Mission : {{mission}}</p>
-        <p class="card_duree">Durée : {{Durée}}</p>
+        <p class="card_subtitle">Lieux : {{ lieux }}</p>
+        <p class="card_description">Mission : {{ mission }}</p>
+        <p class="card_duree">Durée : {{ duree }}</p>
 
-        <router-link  class="btn" :to="`/Savoir/${id}`">En savoir plus</router-link>
-
+        <router-link class="btn" :to="`/Savoir/${id}`">En savoir plus</router-link>
       </div>
     </article>
-
- </div>
-
-
+  </div>
 </template>
 
 <script>
-import { useLoadUsers,  } from '@/main'
-import CloudImage from "@/components/ENTREPRISE/CloudImage";
-
+import { ref, computed } from 'vue'
+import { useLoadUsers } from '@/main'
+import CloudImage from '@/components/ENTREPRISE/CloudImage'
 
 export default {
-  components: {CloudImage},
-  data() {
-    return {
-      isLoading: true,
-    }
-  },
-
+  components: { CloudImage },
   setup() {
+    const isLoading = ref(true)
+    const filtreMission = ref('')
+
     const users = useLoadUsers()
-    return { users }
+
+    const filteredUsers = computed(() => {
+      if (filtreMission.value === '') {
+        return users.value
+      } else {
+        return users.value.filter(user => {
+          return user.mission.toLowerCase().includes(filtreMission.value.toLowerCase())
+        })
+      }
+    })
+
+    return { isLoading, filtreMission, filteredUsers }
   },
-
-
 }
 </script>
+
 
 <style scoped>
 .CTN{
@@ -110,7 +114,6 @@ export default {
 }
 
 .card_title {
-  color: #131313;
   line-height: 10px;
 }
 

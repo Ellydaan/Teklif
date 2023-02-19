@@ -1,34 +1,51 @@
 <template>
-  <body>
+  <div class="CTN">
+    <div class="item">
+      <div class="item1">
+      </div>
 
-  <div class="row1-container">
-    <div class="box box-down cyan">
-      <h2>Entreprisesr</h2>
-      <p>avec des besoins particuliers</p>
-      <img src="https://assets.codepen.io/2301174/icon-supervisor.svg" alt="">
+      <div class="item2">
+        <div class="itemC">
+
+        <div class="card1">
+          <div class="card11">
+            <div class="txt">
+            <h1>Besoin</h1>
+            <h2>Utilisez Teklif pendant vos périodes de rush</h2>
+            </div>
+          </div>
+        </div>
+      <div class="card2">
+        <div class="card22">
+          <div class="txt">
+          <h1>Matching</h1>
+          <h2>Trouvez l’étudiant parfait pour votre mission </h2>
+          </div>
+        </div>
+
+      </div>
+        <div class="card3">
+          <div class="card11">
+            <div class="txt">
+            <h1>Mise en relation</h1>
+            <h2>Discuter directement avec l’étudiant de votre choix</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card4">
+          <div class="card22">
+            <div class="txt">
+            <h1>Rémunération</h1>
+            <h2>Méthodes de paiement flexibles </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
     </div>
 
-    <div class="box red">
-      <h2>Étudiants</h2>
-      <p>dynamiques prêts à répondre à ces besoins</p>
-      <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">
-    </div>
-
-    <div class="box box-down blue">
-      <h2>Une solution </h2>
-      <p>conçue pour trouver le meilleur match entre l’étudiant et l’entreprise </p>
-      <img src="https://assets.codepen.io/2301174/icon-calculator.svg" alt="">
-    </div>
   </div>
-  <div class="row2-container">
-    <div class="box orange">
-      <h2>Karma</h2>
-      <p>Regularly evaluates our talent to ensure quality</p>
-      <img src="https://assets.codepen.io/2301174/icon-karma.svg" alt="">
-    </div>
-  </div>
-
-  </body>
 
 </template>
 
@@ -39,133 +56,141 @@ export default {
 </script>
 
 <style scoped>
-
-
-
-:root {
-  --red: hsl(0, 78%, 62%);
-  --cyan: hsl(180, 62%, 55%);
-  --orange: hsl(34, 97%, 64%);
-  --blue: hsl(212, 86%, 64%);
-  --varyDarkBlue: hsl(234, 12%, 34%);
-  --grayishBlue: hsl(229, 6%, 66%);
-  --veryLightGray: hsl(0, 0%, 98%);
-  --weight1: 200;
-  --weight2: 400;
-  --weight3: 600;
-}
-
-body {
-  font-size: 15px;
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--veryLightGray);
-
-
+.CTN{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ width: 100%;
+   height: 100vh;
+  background-image: url("../../assets/back2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
 }
-
-.attribution {
-  font-size: 11px; text-align: center;
+.item{
+  width: 85%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 30px;
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+.item1{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-image: url("../../assets/fuser.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 20px  0 0 20px;
 }
-
-h1:first-of-type {
-  font-weight: var(--weight1);
-  color: var(--varyDarkBlue);
-
-}
-
-h1:last-of-type {
-  color: var(--varyDarkBlue);
-}
-
-@media (max-width: 400px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-}
-
-.header p {
-  margin: 0 auto;
-  line-height: 2;
-  color: var(--grayishBlue);
-}
+.item2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 20px 20px  0;
 
 
-.box p {
-  color: var(--grayishBlue);
 }
-
-.box {
-  border-radius: 5px;
-  box-shadow: 0px 30px 40px -20px var(--grayishBlue);
-  padding: 30px;
-  margin: 20px;
-}
-
-img {
-  float: right;
-}
-
-@media (max-width: 450px) {
-  .box {
-    height: 200px;
-  }
-}
-
-@media (max-width: 950px) and (min-width: 450px) {
-  .box {
-    text-align: center;
-    height: 180px;
-  }
-}
-
-.cyan {
-  border-top: 3px solid var(--cyan);
-}
-.red {
-  border-top: 3px solid var(--red);
-}
-.blue {
-  border-top: 3px solid var(--blue);
-}
-.orange {
-  border-top: 3px solid var(--orange);
-}
-
-h2 {
-  color: var(--varyDarkBlue);
-  font-weight: var(--weight3);
+.itemC{
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0 20px 20px  0;
+  gap: 30px;
 }
 
 
-@media (min-width: 950px) {
-  .row1-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .row2-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .box-down {
-    position: relative;
-    top: 150px;
-  }
-  .box {
-    width: 20%;
-
-  }
-  .header p {
-    width: 30%;
-  }
+.card1{
+  width: 100%;
+  height: 25%;
+  border-radius: 0 20px 0 0;
 
 }
+.card2{
+  width: 100%;
+  height: 25%;
+
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+}
+.card3{
+  width: 100%;
+  height: 25%;
+
+
+
+
+}
+.card4{
+  width: 100%;
+  height: 25%;
+  border-radius: 0 0 20px 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+
+
+}
+.card11{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  font-size: 2em;
+  color: white;
+  font-weight: bold;
+  background-color: #5B03E4;
+  border-radius:  20px 20px 20px 20px;
+}
+.card22{
+
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  font-size: 2em;
+  color: white;
+  font-weight: bold;
+  background-color: #C03AFE;
+  border-radius:  20px 20px 20px 20px;
+}
+
+.txt{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+h2{
+  width: 70%;
+font-size: 15px;
+}
+h1{
+  font-size: 35px;
+}
+
+
+
+
+
 
 
 

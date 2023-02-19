@@ -59,6 +59,17 @@
                   type="text"
                   required
               />
+
+            </div>
+
+            <div class="form-group ">
+              <label>Email pour recevoir CV</label>
+              <input
+                  v-model="form.emailE"
+                  class="mission form-control"
+                  type="email"
+                  required
+              />
             </div>
             <div class="form-group ">
               <label>Profile recherché</label>
@@ -126,6 +137,7 @@ export default {
         description:"",
         profile:"",
         remuneration:"",
+        emailE:"",
         image: null }
 
     };
@@ -140,7 +152,7 @@ export default {
 
       db.collection("CardE").add({...this.form, image: storageRef.fullPath } )
           .then(() => {
-            this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: '',description:"",profile:"",remuneration:"",image: null  };
+            this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: '',emailE:'', description:"",profile:"",remuneration:"",image: null  };
             console.log("ok")
 
           })
