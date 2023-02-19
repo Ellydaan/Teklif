@@ -152,8 +152,8 @@ export default {
       height: 10%;
     }
     .bg-light{
-      background: rgb(91,14,206);
-      background: linear-gradient(126deg, rgba(91,14,206,1) 0%, rgba(163,57,228,1) 100%);
+      background: rgb(83,170,248);
+      background: linear-gradient(33deg, rgba(83,170,248,1) 52%, rgba(77,203,245,0.7372082622111344) 100%);
     }
     .nav-link:hover{
       color: #FF7D5A !important;
@@ -167,34 +167,42 @@ export default {
       gap: 20px;
 
     }
-    .myButton {
-      background: rgb(91,14,206);
-      background: linear-gradient(126deg, rgba(91,14,206,1) 0%, rgba(163,57,228,1) 100%);
-      border-radius:28px;
-      border:1px solid #ff7e5a;
-      display:inline-block;
-      cursor:pointer;
-      color:#ffffff;
-      font-family:Arial;
-      font-size:17px;
-      padding:16px 31px;
-      text-decoration:none;
-      text-shadow:0px 1px 0px #b23e35;
-    }
-    .myButton:hover {
-      background-color:#fcaf9c;
-    }
-    .myButton:active {
-      position:relative;
-      top:1px;
-    }
-    .BTN{
-      background-color: transparent;
-      border: none;
-    }
+
     p{
       margin: 0;
     }
+
+.myButton {
+  border: none;
+  background: rgb(83,170,248);
+  background: linear-gradient(33deg, rgba(83,170,248,1) 52%, rgba(77,203,245,0.7372082622111344) 100%);
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 500;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transform: translate(1) translate(0, 0);
+  transition: transform 225ms, box-shadow 225ms;
+}
+
+button:hover {
+  transform: scale(1.05) translate(0, -0.15rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.35);
+}
+
+button:active {
+  transform: scale(1) translate(0, 0.15rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.BTN{
+  border: none;
+  background: none;
+
+}
 
 
 

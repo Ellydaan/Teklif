@@ -66,7 +66,7 @@ export default {
   background-image: url("../../assets/back2.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+
 
 }
 .item{
