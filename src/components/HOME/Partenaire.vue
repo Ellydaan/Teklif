@@ -1,16 +1,48 @@
 <template>
-<div class="ctn_flex">
-  <div class="item_txt">
+  <div class="CTN">
 
-<h1>DES PARTENAIRES INTERNATIONAUX</h1>
-    <p>Des entreprises et institutions à la renomée internationale croient en Teklif. Ils proposent des missions aux étudiants, à la recherche de leur futurs collaborateurs.</p>
-      <ButtonS/>
+    <div class="card">
+      <div class="titre">
+        <h1><span>Domaines d’expertise  </span>des étudiants</h1>
+      </div>
+
+      <div class="CTNcard">
+        <div class="Cardd">
+          <img src="../../assets/roue.png"  alt="roue">
+          <p>Sciences
+            Ingénierie</p>
+
+        </div>
+        <div class="Cardd">
+          <img src="../../assets/phone.png" alt="phone">
+          <p>Marketing
+            Communication</p>
+        </div>
+        <div class="Cardd">
+          <img src="../../assets/dev.png" alt="ordinateur">
+          <p>Informatique</p>
+        </div>
+        <div class="Cardd">
+          <img src="../../assets/art.png" alt="art">
+          <p>Design
+            Création</p>
+        </div>
+        <div class="Cardd">
+          <img src="../../assets/arg.png" alt="arg">
+          <p>Économie
+            Gestion</p>
+        </div>
+        <div class="Cardd">
+          <img src="../../assets/adn.png" alt="adn">
+          <p>Santé
+            Biologie</p>
+        </div>
+      </div>
 
 
-</div>
+    </div>
 
   </div>
-
 
 
 </template>
@@ -27,62 +59,67 @@ export default {
 
 <style scoped>
 
-.ctn_flex{
-  margin-top: 90px;
-  color: white;
-  width: 100%;
-  height: 100%;
+.CTN {
   display: flex;
   justify-content: center;
   align-items: center;
-
-
-
-}
-.item_txt{
-  text-align: center;
+  height: 100%;
   width: 100%;
-  height: 50%;
-  background-color: rgb(233, 78, 27,0.5);
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  margin-top: 5%;
+}
+h1{
+  color: black;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+.card{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  padding: 20px;
-
-  color: #000000;
+  width: 80%;
+  height: 90%;
+  border: none;
 
 }
+.CTNcard{
+  display: flex;
+  justify-content: space-around;
+align-items: flex-start;
+  flex-wrap: wrap;
+  width: 65%;
+  height: 100%;
+  padding-top: 70px;
+  gap: 25px;
+}
+.Cardd{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 
+  width: 227px ;
+  height: 252px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+
+
+}
 p{
-  margin-bottom: 20px;
-  width: 40%;
   font-size: 20px;
-
+  font-weight: 600;
+  color: black;
+  text-align: center;
 }
-@media screen and (max-width: 1300px) {
-  .item_txt{
-    width: 100%;
-    height: 50%;
-    background-color: rgb(233, 78, 27,0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 60px;
-  }
-  h1{
-    font-size: 30px;
-  }
-  p{
-    font-size: 15px;
-    width: 80%;
-  }
-
-
-
+span{
+  color: #5B03E4;
 }
-
 
 
 
