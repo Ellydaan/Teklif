@@ -185,7 +185,7 @@ export default {
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  transform: translate(1) translate(0, 0);
+
   transition: transform 225ms, box-shadow 225ms;
 }
 

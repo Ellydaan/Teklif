@@ -96,6 +96,82 @@ button:active {
   padding: 0;
 }
 
+@media screen and (max-width: 768px) {
+  .CTN{
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+
+  }
+  .item2{
+    text-align: center;
+  }
+  button {
+    border: none;
+    background-color: seagreen;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 500;
+    width: 30%;
+    height: 70px;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transform: translate(1) translate(0, 0);
+    transition: transform 225ms, box-shadow 225ms;
+  }
+
+  button:hover {
+    transform: scale(1.05) translate(0, -0.15rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.35);
+  }
+
+  button:active {
+    transform: scale(1) translate(0, 0.15rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  .mission {
+    width: 40%;
+    height: 70px;
+    background-color: #5B03E4;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+  .etudiant {
+    width: 40%;
+    height: 70px;
+    background-color: #C03AFE;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+  .item3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    width: 35%;
+    height: 50%;
+    gap: 40px;
+    padding: 0;
+  }
+
+  }
+
+  @media screen and (max-width: 1500px) {
+    img{
+      width: 100%;
+      height: 100%;
+    }
+
+
+}
 
 
 

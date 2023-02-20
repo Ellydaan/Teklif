@@ -2,10 +2,10 @@
   <div class="CTN">
     <div class="item1">
       <div class="titre">
-        <h1>Teklif, c’est avant tout une opportunité </h1>
+        <h1>Teklif, c’est avant tout <span> une opportunité</span> </h1>
         <h2>
-          Rejoignez le réseau Teklif, où étudiants et entreprises
-          se retrouvent pour collaborer</h2>
+          Rejoignez le réseau Teklif, où étudiants et <span>entreprises</span>
+          se retrouvent pour <span>collaborer</span></h2>
         <div class="btn">
         <button class="mission">
           Déposer une mision
@@ -16,9 +16,6 @@
 
       </div>
       </div>
-    </div>
-    <div class="item2">
-
     </div>
   </div>
 
@@ -39,14 +36,11 @@ export default {
   flex-wrap: wrap;
   display: flex;
   flex-direction: row;
-height: 100vh;
+  height: 100vh;
   width: 100%;
-
-
-background-image: url("../../assets/hdr.png");
+  background-image: url("../../assets/hdr.png");
   background-size: cover;
   background-repeat: no-repeat;
-
   background-attachment: fixed;
 
 }
@@ -57,7 +51,6 @@ background-image: url("../../assets/hdr.png");
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 
 }
 .titre {
@@ -136,14 +129,31 @@ h2 {
   font-weight: 500;
 }
 
+span{
+  color: #5B03E4;
+}
 
 
 
 @media screen and (max-width: 960px) {
-  .flex-container {
+  .CTN {
     flex-direction: column;
-    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
   }
+  .titre {
+    width: 100%;
+    height: 100%;
+  }
+  .item1 {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+  }
+
 }
 @media screen and (max-width: 860px) and (orientation: landscape) {
   .flex-container {

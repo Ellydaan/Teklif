@@ -89,9 +89,7 @@ p{
   height: 50%;
 }
 h1{
-
   width: 80%;
-
   color: #000000;
   font-size: 40px;
   font-weight: 600;
@@ -100,6 +98,33 @@ h1{
 }
 span{
   color: #C03AFE;
+}
+@media screen and (max-width: 670px) {
+  .ctnitem{
+    flex-direction: column;
+  }
+  .item1{
+    width: 100%;
+    height: 50%;
+  }
+  .item2{
+    width: 100%;
+    height: 50%;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+  }
+
+
+}
+@media screen and (max-width: 900px) {
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+
 }
 
 

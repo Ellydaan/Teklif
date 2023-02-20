@@ -60,7 +60,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
  width: 100%;
    height: 100vh;
   background-image: url("../../assets/back2.png");
@@ -171,7 +170,6 @@ export default {
 .txt{
   width: 100%;
   height: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,6 +185,28 @@ h1{
   font-size: 35px;
 }
 
+
+
+@media screen and (max-width: 960px){
+  .item{
+    flex-direction: column;
+
+  }
+  .itemC{gap: 5px}
+  .card11{
+    font-size: 1.5em;
+    width: 100%;
+  }
+  .card22{
+    font-size: 1.5em;
+    width: 100%;
+
+
+  }
+
+
+
+}
 
 
 
