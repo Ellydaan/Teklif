@@ -172,6 +172,15 @@ button:active {
 
 
 }
+@media screen and (max-width: 668px) {
+ .btn{
+
+    width: 100%;
+    height: 100%;
+    gap: 10x;
+    padding: 0;
+ }
+}
 
 
 
