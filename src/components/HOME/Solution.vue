@@ -191,11 +191,13 @@ h1{
   .item{
     flex-direction: column;
 
+
   }
   .itemC{gap: 5px}
   .card11{
     font-size: 1.5em;
     width: 100%;
+
   }
   .card22{
     font-size: 1.5em;
@@ -203,7 +205,10 @@ h1{
 
 
   }
-  
+  .item1{
+    border-radius: 20px 20px 0 0;
+  }
+
 
 
 

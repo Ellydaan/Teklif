@@ -146,14 +146,20 @@ export default {
 <style scoped>
 .navbar{
   padding: 0 10px 0 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
 }
     .logo{
       width: 150px;
       height: 10%;
     }
     .bg-light{
-      background: rgb(83,170,248);
-      background: linear-gradient(33deg, rgba(83,170,248,1) 52%, rgba(77,203,245,0.7372082622111344) 100%);
+     background-color: #FFFFFF;
+
     }
     .nav-link:hover{
       color: #FF7D5A !important;

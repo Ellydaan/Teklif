@@ -43,6 +43,7 @@ export default {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
+
 }
 .item1 {
   width: 50%;
@@ -142,6 +143,8 @@ span{
     align-items: center;
     width: 100%;
     height: 100%;
+    margin-top: 50px;
+
 
   }
   .titre {
@@ -153,6 +156,7 @@ span{
     height: 100%;
     padding: 30px;
   }
+
 
 }
 @media screen and (max-width: 860px) and (orientation: landscape) {

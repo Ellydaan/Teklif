@@ -1,7 +1,7 @@
 <template>
 <div class="CTN">
   <div class="item1">
-    <img src="../../assets/fin.png" alt="fin">
+
 
   </div>
   <div class="item2">
@@ -36,6 +36,15 @@ export default {
   flex-direction: column;
   margin-top: 70px;
   margin-bottom: 30px;
+
+}
+.item1{
+ background-image: url("../../assets/fin.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
+  border-radius: 20px;
 
 }
 .item2{
@@ -102,6 +111,11 @@ button:active {
     display: flex;
     flex-direction: column;
     margin-top: 70px;
+
+  }
+  .item1{
+    display: none;
+
 
   }
   .item2{
@@ -171,27 +185,33 @@ button:active {
       height: 100%;
     }
 
-
-
 }
-
-@media screen and (max-width: 668px) {
- .btn{
-
-    width: 100%;
-    height: 100%;
-
-    padding: 0;
- }
-}
-
-@media  screen and (max-width: 800px){
+@media screen and (max-width: 900px){
   .btn{
 
     width: 100%;
     height: 100%;
 
     padding: 0;
+  }
+  h1{
+    font-size: 1.5rem;
+  }
+}
+
+
+
+
+@media  screen and (max-width: 600px){
+  .btn{
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+  }
+  h1{
+    font-size: 1.5rem;
   }
 
 }
