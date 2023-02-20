@@ -203,11 +203,25 @@ h1{
 
 
   }
+  
+
+
+
+
 
 
 
 }
 
+@media screen and (max-width: 900px){
+  h1{
+    font-size: 20px;
+    margin: 0;
+  }
+  .txt{padding: 10px}
+
+
+}
 
 
 
