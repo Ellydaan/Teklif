@@ -33,6 +33,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Domain"
 }
@@ -112,8 +113,7 @@ span{
     height: 50%;
   }
   img{
-    width: 100%;
-    height: 100%;
+    display: none;
   }
 
 

@@ -35,6 +35,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin-top: 70px;
+  margin-bottom: 30px;
 
 }
 .item2{
@@ -171,15 +172,28 @@ button:active {
     }
 
 
+
 }
+
 @media screen and (max-width: 668px) {
  .btn{
 
     width: 100%;
     height: 100%;
-    gap: 10x;
+
     padding: 0;
  }
+}
+
+@media  screen and (max-width: 800px){
+  .btn{
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+  }
+
 }
 
 
