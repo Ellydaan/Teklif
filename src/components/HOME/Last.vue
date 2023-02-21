@@ -106,7 +106,7 @@ button:active {
   padding: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px)  {
   .CTN{
     display: flex;
     flex-direction: column;
@@ -202,7 +202,7 @@ button:active {
 
 
 
-@media  screen and (max-width: 600px){
+@media  screen and (max-width: 600px) {
   .btn{
 
     width: 100%;

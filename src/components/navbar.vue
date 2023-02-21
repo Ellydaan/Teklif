@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top " id="navbar">
     <router-link to="/" class="navbar-brand" href="#"><img class="logo" src="../assets/logo_tek.png" alt="logo_tek"> </router-link>
 
     <button class="navbar-toggler btnn " type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,6 +57,8 @@
 
 
 <script>
+
+
 import firebase from "firebase/compat/app";
 
 export default {
@@ -146,7 +148,6 @@ export default {
 <style scoped>
 .navbar{
   padding: 0 10px 0 10px;
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -158,11 +159,12 @@ export default {
       height: 10%;
     }
     .bg-light{
-     background-color: #FFFFFF;
+      background: rgb(255,255,255);
+      background: linear-gradient(33deg, rgba(255,255,255,1) 31%, rgba(245,245,245,1) 100%);
 
     }
     .nav-link:hover{
-      color: #FF7D5A !important;
+      color: #c03afe !important;
 
     }
     .navb-txt{
@@ -173,6 +175,17 @@ export default {
       gap: 20px;
 
     }
+.navbar-shrink {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  background-color: #f8f9fa;
+  transition: padding-top 0.3s, padding-bottom 0.3s;
+}
+
+.navbar-shrink .logo {
+  max-height: 50px;
+  transition: max-height 0.3s;
+}
 
     p{
       margin: 0;

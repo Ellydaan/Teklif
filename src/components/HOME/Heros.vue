@@ -135,7 +135,6 @@ span{
 }
 
 
-
 @media screen and (max-width: 960px) {
   .CTN {
     flex-direction: column;
@@ -159,11 +158,9 @@ span{
 
 
 }
-@media screen and (max-width: 860px) and (orientation: landscape) {
-  .flex-container {
-    flex-direction: row;
-    height: 100vh;
-  }
-}
+
+
+
+
 
 </style>

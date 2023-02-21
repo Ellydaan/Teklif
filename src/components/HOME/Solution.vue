@@ -187,7 +187,7 @@ h1{
 
 
 
-@media screen and (max-width: 960px){
+@media screen and (max-width: 960px) {
   .item{
     flex-direction: column;
 
