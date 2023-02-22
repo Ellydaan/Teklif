@@ -1,168 +1,246 @@
 <template>
   <div class="CTN">
-    <label for="missionFilter">Filtrer par mission:</label>
-    <input id="missionFilter" v-model="filtreMission">
-    <article class="card" v-if="isLoading" v-for="{ id, poste, lieux, mission, duree, image } in filteredUsers" :key="id">
-      <div class="img">
-        <CloudImage v-bind:path="image" />
-      </div>
-      <div class="card_content">
-        <p class="card_title">
-          Titre : {{ poste }}
-        </p>
-        <p class="card_subtitle">Lieux : {{ lieux }}</p>
-        <p class="card_description">Mission : {{ mission }}</p>
-        <p class="card_duree">Durée : {{ duree }}</p>
+    <div class="bck">
 
-        <router-link class="btn" :to="`/Savoir/${id}`">En savoir plus</router-link>
+    </div>
+    <div class="header">
+ <h1>Trouvez la mission qu’il vous faut </h1>
+    </div>
+    <div class="ctn">
+      <div class="card" v-if="isLoading" v-for="{ id, poste, lieux, mission,  Durée, image,remuneration } in users" :key="id">
+        <div class="boxR">
+          <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 190px">
+        </div>
+<div class="boxL">
+  <div class="boxL1">
+          <h1>{{ poste }}</h1>
+  <div class="boxB">
+  <p>{{ lieux }}</p>
+  <p>{{ mission }}</p>
+    <p>{{  Durée}}</p>
+    <p>{{  remuneration}}</p>
+  </div>
+  </div>
+  <div class="boxL2">
+    <router-link class="btn" :to="`/Savoir/${id}`">En savoir plus</router-link>
+
+    </div>
+
+
+
+
+</div>
+
+
       </div>
-    </article>
+
+
+
+    </div>
+
   </div>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
-import { useLoadUsers } from '@/main'
-import CloudImage from '@/components/ENTREPRISE/CloudImage'
+import { useLoadUsers,  } from '@/main'
+import CloudImage from "@/components/ENTREPRISE/CloudImage";
+
 
 export default {
-  components: { CloudImage },
-  setup() {
-    const isLoading = ref(true)
-    const filtreMission = ref('')
-
-    const users = useLoadUsers()
-
-    const filteredUsers = computed(() => {
-      if (filtreMission.value === '') {
-        return users.value
-      } else {
-        return users.value.filter(user => {
-          return user.mission.toLowerCase().includes(filtreMission.value.toLowerCase())
-        })
-      }
-    })
-
-    return { isLoading, filtreMission, filteredUsers }
+  components: {CloudImage},
+  data() {
+    return {
+      isLoading: true,
+    }
   },
+
+  setup() {
+    const users = useLoadUsers()
+    return { users }
+  },
+
+
 }
 </script>
 
 
 <style scoped>
 .CTN{
-  width: 100%;
+  margin-top: 60px;
 
-  display: flex;
+
+}
+
+.ctn{
   flex-wrap: wrap;
+  display: flex;
   justify-content: center;
-  gap: 80px;
-  margin: 0;
-  padding-top: 30px;
-  background: #f2e6e2;
-  border-top: #FFFFFF 2px solid;
-  padding-bottom: 15%;
-}
-
-.card {
-  position: relative;
-  width: 350px;
-  height: 450px;
-  color: #2e2d31;
-  background: #131313;
-  overflow: hidden;
-  border-radius: 20px;
-
+  align-items: center;
+  margin-top: 50px;
 
 }
-
-
-
-.card_title {
-  font-weight: bold;
-  font-size: 20px;
-
-}
-
-.card_content {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  /* edit the width to fit card */
+.header{
   width: 100%;
-  padding: 20px;
-  background: #FF7D5A;
-  border-top-left-radius: 20px;
-  /* edit here to change the height of the content box */
-  transform: translateY(70px);
-  transition: transform .25s;
-  gap: 15px;
-}
-
-.card_content::before {
-  content: '';
-  position: absolute;
-  top: -47px;
-  right: -45px;
-  width: 100px;
-  height: 100px;
-  transform: rotate(-175deg);
-  border-radius: 50%;
-  box-shadow: inset 48px 48px #FF7D5A;
-}
-
-.card_title {
-  line-height: 10px;
-}
-
-
-
-.card_description {
-  font-size: 14px;
+  height: 160px;
+  background: rgb(77,205,244);
+  background: linear-gradient(90deg, rgba(77,205,244,1) 0%, rgba(85,156,250,1) 35%, rgba(84,164,249,1) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
+.card{
 
-.card:hover .card_content {
-  transform: translateY(0);
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: 872px;
+  height: 172px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+
+}
+.boxR{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   border-right: 1px solid rgba(0, 0, 0, 0.16);
+  width: 200px;
+  height: 172px;
+  border-radius: 10px 0 0 10px;
 }
 
-.card:hover .card_description {
-  opacity: 1;
-  transition-delay: .25s;
-}
-.btn {
-  display: inline-block;
+.boxL{
 
-  font-size: 16px;
-  font-weight: 700;
+  border-radius: 0 10px 10px 0;
+  width: 672px;
+  height: 172px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+.boxL1 {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+  width: 70%;
+  height: 60%;
+
+
+}
+
+
+
+.boxB{
+  display: flex;
+  flex-direction: row;
+width: 100%;
+gap: 20px;
+justify-content: center;
+
+
+}
+.boxL1 h1{
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  display: flex;
+  align-self: start;
+  padding-left: 25px;
+
+}
+p{
+  font-size: 20px;
+  font-weight: 500;
+
+
+}
+.boxL2{
+  border-left: 1px solid rgba(0, 0, 0, 0.16);
+  width: 30%;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+
+}
+.btn{
+
   color: #000000;
-  border: 3px solid #FF7D5A;
-  cursor: pointer;
-  position: relative;
-  background-color: transparent;
-  text-decoration: none;
-  overflow: hidden;
-  z-index: 1;
-  font-family: inherit;
-}
-
-.btn::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
+  font-size: 20px;
+  font-weight: 600;
   width: 100%;
   height: 100%;
-  background-color: #FF7D5A;
-  transform: translateX(-100%);
-  transition: all .3s;
-  z-index: -1;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.btn:hover::before {
-  transform: translateX(0);
+@media screen and (max-width: 960px){
+  .card{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+  .header h1{
+    font-size: 25px;
+  }
+  .boxR{
+    width: 100%;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  }
+  .boxL{
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 10px 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .boxL1{
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  }
+  .boxL2{
+    width: 100%;
+    height: 50%;
+    border-radius: 0 0 10px 10px;
+  }
+  .boxB{
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .boxB p{
+    margin-bottom: 20px;
+  }
+  .boxL1 h1{
+    padding-left: 0;
+    align-self: center;
+  }
 }
+
+
+
+
 
 </style>
