@@ -1,25 +1,44 @@
 <template>
-  <div class="CTNN">
-<div class="CTN">
-  <div class="card" v-for="{ id,prenom, nom, specialite,image} in Card" :key="id">
+  <div class="CTN">
+    <div class="bck">
 
-    <div class="TXT">
-      <div class="img">
-        <CloudImage v-bind:path="image" />
+    </div>
+    <div class="header">
+      <h1>Trouvez l'étudiant qu’il vous faut </h1>
+    </div>
+    <div class="ctn">
+      <div class="card" v-for="{ id,prenom, nom, specialite,image} in Card" :key="id">
+        <div class="boxR">
+          <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 190px">
+        </div>
+        <div class="boxL">
+          <div class="boxL1">
+            <div class="boxT">
+            <h1>{{ prenom}}</h1>
+            <h1>{{ nom}}</h1>
+            </div>
+            <div class="boxB">
+
+              <p>{{specialite }}</p>
+
+            </div>
+          </div>
+          <div class="boxL2">
+            <router-link class="btn" :to="`/Savoir/${id}`">En savoir plus</router-link>
+
+          </div>
+
+
+
+
+        </div>
+
+
       </div>
-      <p>{{prenom}}</p>
-      <p>{{nom}}</p>
-      <p>{{specialite}}</p>
 
-      <router-link :to="`/EnSavoirE/${id}`" class="btn">En savoir plus</router-link>
-    </div>
+
 
     </div>
-
-
-
-</div>
-
 
   </div>
 
@@ -45,78 +64,191 @@ export default {
 </script>
 
 <style scoped>
-.CTNN{
+.CTN{
+  margin-top: 60px;
+
+
+}
+
+.ctn{
+  flex-wrap: wrap;
   display: flex;
   justify-content: center;
-  margin-top: 5px;
-  gap: 20px;
-  background-color: #f2e6e2;
-  width: 100%;
+  align-items: center;
+  margin-top: 50px;
+
 }
-.CTN {
+.header{
+  width: 100%;
+  height: 160px;
+  background: rgb(192,58,254);
+  background: linear-gradient(33deg, rgba(192,58,254,1) 31%, rgba(203,161,223,1) 60%);
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+}
+.card{
+
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: 872px;
+  height: 172px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+
+}
+.boxR{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.16);
+  width: 200px;
+  height: 172px;
+  border-radius: 10px 0 0 10px;
+}
+
+.boxL{
+
+  border-radius: 0 10px 10px 0;
+  width: 672px;
+  height: 172px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+.boxL1 {
+
+  width: 70%;
+  height: 60%;
+
+
+
+}
+.boxT{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
-  width: 60%;
+
+}
+
+
+
+.boxB{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+  justify-content: center;
+
+
+
+}
+.boxL1 h1 h2{
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  display: flex;
+  align-self: start;
   padding-left: 25px;
 
 }
-.TXT {
-  margin-top: 20%;
+p{
+  font-size: 20px;
+  font-weight: 500;
+
+
+}
+.boxL2{
+  border-left: 1px solid rgba(0, 0, 0, 0.16);
+  width: 30%;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+
+}
+.btn{
+
+  color: #000000;
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  transition: 0.3s;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.card {
-  margin-top: 30px;
-  width: 17em;
-  height: 22.5em;
-  background: #ff7e5a;
-  transition: 1s ease-in-out;
-  clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-
-.card span {
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  display: block;
-  padding-top: 1em;
-  font-size: 1em;
-}
-
-.card .info {
-  font-weight: 400;
-  color: white;
-  display: block;
-  text-align: center;
-  padding-top: 0.1em;
-  font-size: 0.72em;
-  margin: 1em;
-  margin-top: 1em;
-}
-
-.card .img {
-  width: 4.8em;
-  height: 4.8em;
-  background: white;
-  border-radius: 15px;
 
 }
 
-
-
-.card a {
-  color: white;
-  transition: .4s ease-in-out;
+@media screen and (max-width: 960px){
+  .card{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+  .header h1{
+    font-size: 25px;
+  }
+  .boxR{
+    width: 100%;
+    height: 100px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  }
+  .boxL{
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 10px 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .boxL1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  }
+  .boxL2{
+    width: 100%;
+    height: 50%;
+    border-radius: 0 0 10px 10px;
+  }
+  .boxB{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .boxB p{
+    margin-bottom: 20px;
+  }
+  .boxL1 h1{
+    padding-left: 0;
+    align-self: center;
+  }
 }
 
-.card a:hover {
-  color: rgb(36, 116, 221);
-}
 
 
 
