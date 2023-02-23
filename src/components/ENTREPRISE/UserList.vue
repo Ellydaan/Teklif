@@ -9,7 +9,7 @@
     <div class="ctn">
       <div class="card" v-if="isLoading" v-for="{ id, poste, lieux, mission,  Durée, image,remuneration } in users" :key="id">
         <div class="boxR">
-          <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 190px">
+          <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 170px">
         </div>
 <div class="boxL">
   <div class="boxL1">
@@ -114,6 +114,8 @@ export default {
   width: 200px;
   height: 172px;
   border-radius: 10px 0 0 10px;
+  background: rgb(77,205,244);
+  background: linear-gradient(90deg, rgba(77,205,244,1) 0%, rgba(85,156,250,1) 35%, rgba(84,164,249,1) 100%);
 }
 
 .boxL{
@@ -217,6 +219,7 @@ p{
     width: 100%;
     height: 50%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+    margin: 20px;
   }
   .boxL2{
     width: 100%;

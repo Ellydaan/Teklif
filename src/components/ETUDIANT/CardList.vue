@@ -9,7 +9,7 @@
     <div class="ctn">
       <div class="card" v-for="{ id,prenom, nom, specialite,image} in Card" :key="id">
         <div class="boxR">
-          <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 190px">
+          <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 170px">
         </div>
         <div class="boxL">
           <div class="boxL1">
@@ -113,6 +113,8 @@ export default {
   width: 200px;
   height: 172px;
   border-radius: 10px 0 0 10px;
+  background: rgb(192,58,254);
+  background: linear-gradient(33deg, rgba(192,58,254,1) 31%, rgba(203,161,223,1) 60%);
 }
 
 .boxL{
