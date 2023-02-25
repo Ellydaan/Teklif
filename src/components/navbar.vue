@@ -39,7 +39,7 @@
 
 <!--quand t connecter -->
     <button class="myButton"  v-if="isLoggedIn" @click="logout" ><p>Déconnexion</p> </button>
-         <router-link class="myButton" to="/Login" v-else >Connexion </router-link>
+         <button class="myButton" @click="btn" v-else >Connexion </button>
     </span>
         <span class="navbar-text">
 
@@ -139,6 +139,9 @@ export default {
             this.$router.push('/');
           });
     },
+    btn(){
+      this.$router.push('/Login');
+    }
   }
 };
 </script>
@@ -204,8 +207,8 @@ export default {
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
-
   transition: transform 225ms, box-shadow 225ms;
+
 }
 
 button:hover {

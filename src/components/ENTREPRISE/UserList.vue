@@ -146,7 +146,7 @@ align-items: center;
   display: flex;
   flex-direction: row;
 width: 100%;
-gap: 20px;
+gap: 60px;
 justify-content: center;
 
 
