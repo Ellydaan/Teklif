@@ -7,14 +7,23 @@
           Rejoignez le réseau Teklif, où étudiants et <span>entreprises</span>
           se retrouvent pour <span>collaborer</span></h2>
         <div class="btn">
-        <button class="mission">
-          Déposer une mision
-        </button>
-          <button class="etudiant">
-            Déposer une mision
+          <button class="mission">
+            <router-link to="/Mission" class="mission">
+
+              Trouver une mission
+
+            </router-link>
           </button>
 
-      </div>
+          <button class="etudiant">
+            <router-link to="/Etudiant" class="etudiant">
+
+              Trouver une mission
+
+            </router-link>
+          </button>
+
+        </div>
       </div>
     </div>
   </div>
@@ -62,11 +71,6 @@ export default {
 flex-direction: column;
 
 
-
-}
-.item2 {
-  width: 50%;
-  height: 100%;
 
 }
 button {
@@ -120,6 +124,7 @@ h2 {
   color: white;
   font-size: 1.15rem;
   font-weight: 500;
+  text-decoration: none;
 }
 .etudiant {
   width: 40%;
@@ -128,6 +133,7 @@ h2 {
   color: white;
   font-size: 1.15rem;
   font-weight: 500;
+  text-decoration: none;
 }
 
 span{

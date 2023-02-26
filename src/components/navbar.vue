@@ -170,8 +170,8 @@ export default {
 
 }
     .logo{
-      width: 150px;
-      height: 10%;
+      width: 200px;
+
     }
     .bg-light{
       background: rgb(255,255,255);

@@ -11,10 +11,19 @@
   <div class="item3">
     <div class="btn">
       <button class="mission">
-        Déposer une mision
+      <router-link to="/Mission" class="mission">
+
+        Trouver une mission
+
+      </router-link>
       </button>
+
       <button class="etudiant">
-        Déposer une mision
+        <router-link to="/Etudiant" class="etudiant">
+
+          Trouver une mission
+
+        </router-link>
       </button>
 
     </div>
@@ -43,7 +52,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 500px;
+  height: 600px;
   border-radius: 20px;
 
 }
@@ -81,6 +90,8 @@ button:active {
   color: white;
   font-size: 1.15rem;
   font-weight: 500;
+ text-decoration: none;
+
 }
 .etudiant {
   width: 40%;
@@ -89,6 +100,7 @@ button:active {
   color: white;
   font-size: 1.15rem;
   font-weight: 500;
+  text-decoration: none;
 }
 .item3{
   display: flex;

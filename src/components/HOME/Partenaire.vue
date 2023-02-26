@@ -92,7 +92,7 @@ h1{
   justify-content: space-around;
 align-items: flex-start;
   flex-wrap: wrap;
-  width: 65%;
+  width: 62%;
   height: 100%;
   padding-top: 70px;
   gap: 25px;
