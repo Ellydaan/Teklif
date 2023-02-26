@@ -174,15 +174,15 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 5px;
+
   text-align: center;
 }
 h2{
-  width: 70%;
+  width: 60%;
 font-size: 15px;
 }
 h1{
-  font-size: 35px;
+  font-size: 30px;
 }
 
 

@@ -30,6 +30,15 @@
 
         </div>
 
+        <div class="ctn" v-if="isEtudiant" >
+
+          <li class="nav-item">
+
+            <router-link to="/Like" class="nav-link ">{{Like}}</router-link>
+          </li>
+
+        </div>
+
 
 
 
@@ -38,6 +47,7 @@
       <span class="navbar-text">
 
 <!--quand t connecter -->
+
     <button class="myButton"  v-if="isLoggedIn" @click="logout" ><p>Déconnexion</p> </button>
          <button class="myButton" @click="btn" v-else >Connexion </button>
     </span>
@@ -70,6 +80,7 @@ export default {
       name:"",
       mission:"",
       etudiant:"",
+      Like:"",
       isLoggedIn: false,
       isEntreprise:false,
       isEtudiant:false,
@@ -86,6 +97,7 @@ export default {
             this.isEntreprise = true;
             this.isEtudiant = false;
             this.mission = "";
+            this.Like = "";
             this.etudiant = "Nos étudiants";
             this.addM = "Ajouter une mission";
             localStorage.setItem("user", JSON.stringify(user));
@@ -99,6 +111,7 @@ export default {
                 this.isEntreprise = false;
                 this.isEtudiant = true;
                 this.mission = "Nos missions";
+                this.Like = "Nos likes";
                 this.etudiant = "";
                 localStorage.setItem("user", JSON.stringify(user));
                 console.log("Student user");
@@ -129,7 +142,6 @@ export default {
             this.mission = "";
             this.etudiant = "";
             this.addM = "";
-
             this.name="";
             this.isLoggedIn = false;
             console.log("logout");

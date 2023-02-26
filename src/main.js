@@ -9,6 +9,7 @@ import { ref, onUnmounted } from 'vue'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import '@fortawesome/fontawesome-free/css/all.css'
 
 
 const firebaseConfig = {

@@ -84,6 +84,13 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/EnSavoirE.vue')
 
   },
+  {
+    path: '/Like',
+    name: 'Like',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Like.vue')
+
+  },
+
 
 
 

@@ -1,116 +1,79 @@
 <template>
-  <div class="CTN">
+  <div>
+    <Navbar/>
     <div class="header">
-      <h1>Trouvez la mission qu’il vous faut</h1>
+      <h1>Mes Likes </h1>
     </div>
-    <div class="ctn">
-      <div class="card" v-if="isLoading" v-for="{ id, poste, lieux, mission, Durée, image, remuneration } in users" :key="id">
-        <div class="boxR">
-          <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 170px">
-          <button :class="{ liked: isLiked(id) }" @click="toggleLike({ id, poste, lieux, mission, Durée, image, remuneration })">
-            <i class="fa fa-heart"></i>
-          </button>
+    <div v-if="isLoading">
+      Chargement en cours...
+    </div>
+    <div v-else-if="missions.length === 0">
+      Vous n'avez encore rien liké.
+    </div>
+
+
+    <div v-else>
+
+  <div class="ctn">
+    <div class="card" v-for="mission in missions" :key="mission.id">
+      <div class="boxR">
+        <img src="../assets/logo_tek.png" alt="logo" class="img" style="width: 170px">
+
+      </div>
+      <div class="boxL">
+        <div class="boxL1">
+          <h1>{{ mission.poste }}</h1>
+          <div class="boxB">
+            <p>{{ mission.lieux }}</p>
+            <p>{{ mission.mission }}</p>
+            <p>{{  mission.Durée}}</p>
+            <p>{{  mission.remuneration}}</p>
+          </div>
         </div>
-        <div class="boxL">
-          <div class="boxL1">
-            <h1>{{ poste }}</h1>
-            <div class="boxB">
-              <p>{{ lieux }}</p>
-              <p>{{ mission }}</p>
-              <p>{{ Durée }}</p>
-              <p>{{ remuneration }}</p>
-            </div>
-          </div>
-          <div class="boxL2">
-            <router-link class="btn" :to="`/Savoir/${id}`">En savoir plus</router-link>
-          </div>
+        <div class="boxL2">
+          <router-link class="btn" :to="`/Savoir/${mission.id}`">En savoir plus</router-link>
+
         </div>
       </div>
     </div>
   </div>
+  </div>
+  </div>
+
 </template>
 
 <script>
-import { useLoadUsers } from '@/main'
-import CloudImage from "@/components/ENTREPRISE/CloudImage";
 import firebase from "firebase/compat/app";
-import Button from "@/components/HOME/Button/ButtonO";
+import 'firebase/firestore'
+import Navbar from "@/components/navbar";
+import {useLoadUsers} from "@/main";
+
+
 
 export default {
-  components: {Button, CloudImage },
+  components: {Navbar},
   data() {
     return {
       isLoading: true,
-      likedMissions: [],
+      missions: [],
     }
   },
   setup() {
     const users = useLoadUsers()
     return { users }
   },
+
   async created() {
     const userId = firebase.auth().currentUser.uid
     const likesRef = firebase.firestore().collection('etudiant').doc(userId).collection('like')
-    const querySnapshot = await likesRef.get()
-    this.likedMissions = querySnapshot.docs.map((doc) => doc.data().id)
-  },
-  methods: {
-    async toggleLike(mission) {
-      const userId = firebase.auth().currentUser.uid
-      const likesRef = firebase.firestore().collection('etudiant').doc(userId).collection('like')
-      const querySnapshot = await likesRef.where('id', '==', mission.id).get()
-      if (querySnapshot.empty) {
-        await likesRef.add(mission)
-        this.likedMissions.push(mission.id)
-        console.log('Mission added to likes collection:', mission)
-      } else {
-        await querySnapshot.docs[0].ref.delete()
-        this.likedMissions = this.likedMissions.filter((id) => id !== mission.id)
-        console.log('Mission removed from likes collection:', mission)
-      }
-    },
-    isLiked(id) {
-      return this.likedMissions.includes(id)
-    },
-  },
+    const snapshot = await likesRef.get()
+    this.missions = snapshot.docs.map(doc => doc.data())
+    this.isLoading = false
+  }
 }
 </script>
 
-
 <style scoped>
-
-button {
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: #ccc;
-  transition: color 0.2s;
-}
-
-.liked {
-  color: red;
-
-}
-
-.liked:hover {
-  color: red;
-}
-.img{
-
-
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-
-.CTN{
-  margin-top: 60px;
-
-
-}
-
 .ctn{
   flex-wrap: wrap;
   display: flex;
@@ -127,6 +90,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 60px;
 
 }
 .card{
@@ -151,8 +115,7 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-   border-right: 1px solid rgba(0, 0, 0, 0.16);
+  border-right: 1px solid rgba(0, 0, 0, 0.16);
   width: 200px;
   height: 172px;
   border-radius: 10px 0 0 10px;
@@ -172,10 +135,10 @@ button {
 
 }
 .boxL1 {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 70%;
   height: 60%;
 
@@ -187,9 +150,9 @@ align-items: center;
 .boxB{
   display: flex;
   flex-direction: row;
-width: 100%;
-gap: 60px;
-justify-content: center;
+  width: 100%;
+  gap: 60px;
+  justify-content: center;
 
 
 }
@@ -285,7 +248,5 @@ p{
 }
 
 
-
-
-
 </style>
+
