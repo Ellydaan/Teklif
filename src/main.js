@@ -46,14 +46,10 @@ const db = firebaseApp.firestore()
 Vue.config.productionTip = false
 
 
-const CardECollection = db.collection('CardE',)
-const Card = db.collection('Card')
 
 
 
-export const createUser = user => {
-  return usersCollection.add(user)
-}
+
 
 export const getUser = async id => {
   const user = await CardECollection.doc(id).get()
@@ -64,13 +60,11 @@ export const getE = async id => {
   return card.exists ? card.data() : null
 }
 
-export const updateUser = (id, user) => {
-  return usersCollection.doc(id).update(user)
-}
 
-export const deleteUser = id => {
-  return usersCollection.doc(id).delete()
-}
+
+const CardECollection = db.collection('CardE',)
+const Card = db.collection('Card')
+
 
 export const useLoadUsers = () => {
   const users = ref([])
@@ -81,13 +75,14 @@ export const useLoadUsers = () => {
   return users
 }
 export const useLoadCard = () => {
-  const etudiant = ref([])
+  const etudiante = ref([])
   const close = Card.onSnapshot(snapshot => {
-    etudiant.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+    etudiante.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
   })
   onUnmounted(close)
-  return etudiant
+  return etudiante
 }
+
 
 new Vue({
   router,

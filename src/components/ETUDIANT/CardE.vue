@@ -48,6 +48,7 @@ export default {
             specialite: this.specialite,image: storageRef.fullPath});
 
         db.collection('Card').doc(user.uid).set({ prenom: this.prenom, nom: this.nom, specialite: this.specialite ,image: storageRef.fullPath})
+            db.collection('etudiant').doc(user.uid).collection('CardE').doc(user.uid).set({ prenom: this.prenom, nom: this.nom, specialite: this.specialite ,image: storageRef.fullPath})
             .then(() => {
               this.$router.push("/Etudiant");
             });

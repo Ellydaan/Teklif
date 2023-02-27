@@ -6,8 +6,13 @@
     <div class="header">
       <h1>Trouvez l'étudiant qu’il vous faut </h1>
     </div>
-    <div class="ctn">
-      <div class="card" v-for="{ id,prenom, nom, specialite,image} in Card" :key="id">
+    
+    <div v-if="isLoading">
+      Chargement en cours...
+    </div>
+
+    <div class="ctn"  v-else>
+      <div class="card" v-for="{ id,prenom, nom, specialite,image} in missions" :key="id">
         <div class="boxR">
           <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 170px">
         </div>
@@ -46,17 +51,43 @@
 
 
 <script>
-import { useLoadCard,} from '@/main'
+
+import 'firebase/firestore'
 import CloudImage from "@/components/ENTREPRISE/CloudImage";
+import firebase from "firebase/compat/app";
 
 export default {
   name: "CardList",
   components: {CloudImage},
 
-  setup() {
-    const Card = useLoadCard()
-    return { Card }
-  }
+  data() {
+    return {
+      isLoading: true,
+      missions: [],
+    }
+  },
+
+
+  async created() {
+    const etudiantRef = firebase.firestore().collection('etudiant');
+    const querySnapshot = await etudiantRef.get();
+
+    const missions = [];
+
+    querySnapshot.forEach((doc) => {
+      const cardERef = doc.ref.collection('CardE');
+      cardERef.get().then((cardESnapshot) => {
+        cardESnapshot.forEach((cardEDoc) => {
+          missions.push(cardEDoc.data());
+        });
+      });
+    });
+
+    this.missions = missions;
+    this.isLoading = false;
+  },
+
+
 
 }
 

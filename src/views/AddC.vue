@@ -2,7 +2,6 @@
   <div class="CTN">
   <Navbar/>
 <CardE/>
-    <CardsList/>
   </div>
 </template>
 
