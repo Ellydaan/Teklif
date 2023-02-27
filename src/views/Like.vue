@@ -18,6 +18,9 @@
     <div class="card" v-for="mission in missions" :key="mission.id">
       <div class="boxR">
         <img src="../assets/logo_tek.png" alt="logo" class="img" style="width: 170px">
+        <button class="btnD" @click="unlike(mission)">Supprimer</button>
+
+
 
       </div>
       <div class="boxL">
@@ -25,7 +28,7 @@
           <h1>{{ mission.poste }}</h1>
           <div class="boxB">
             <p>{{ mission.lieux }}</p>
-            <p>{{ mission.mission }}</p>
+
             <p>{{  mission.Durée}}</p>
             <p>{{  mission.remuneration}}</p>
           </div>
@@ -69,7 +72,19 @@ export default {
     const snapshot = await likesRef.get()
     this.missions = snapshot.docs.map(doc => doc.data())
     this.isLoading = false
-  }
+  },
+   methods: {
+      async unlike(mission) {
+        const userId = firebase.auth().currentUser.uid
+        const likesRef = firebase.firestore().collection('etudiant').doc(userId).collection('like')
+        const snapshot = await likesRef.get()
+        const docs = snapshot.docs.filter(doc => doc.data().id === mission.id)
+        docs.forEach(doc => doc.ref.delete())
+        this.missions = this.missions.filter(m => m.id !== mission.id)
+      }
+    }
+
+
 }
 </script>
 

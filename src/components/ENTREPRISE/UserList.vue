@@ -16,7 +16,6 @@
             <h1>{{ poste }}</h1>
             <div class="boxB">
               <p>{{ lieux }}</p>
-              <p>{{ mission }}</p>
               <p>{{ Durée }}</p>
               <p>{{ remuneration }}</p>
             </div>
