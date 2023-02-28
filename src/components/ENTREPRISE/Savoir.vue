@@ -1,7 +1,10 @@
 <template>
   <div  class="CTN" >
+    <div v-if="isLoading">
+      ça charge
+    </div>
 
-    <div id="demoObject">
+    <div id="demoObject" v-else>
 
       <div class="haut">
         <div class="ctn">
@@ -63,7 +66,7 @@
 
 <script>
 
-import {db, getUser, storage, useLoadUsers} from '@/main'
+import {db, storage, } from '@/main'
 import firebase from "firebase/compat/app";
 import  { ref,uploadBytes } from "firebase/storage"
 import Navbar from "@/components/navbar";
@@ -90,8 +93,6 @@ export default {
   },
 
   async mounted() {
-
-
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -127,7 +128,9 @@ async created() {
   const querySnapshot = await cardRef.get()
   querySnapshot.forEach(doc => {
     this.info = doc.data()
+    this.isLoading = false
   })
+
 }
 
 

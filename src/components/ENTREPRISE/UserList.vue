@@ -3,8 +3,13 @@
     <div class="header">
       <h1>Trouvez la mission qu’il vous faut</h1>
     </div>
-    <div class="ctn">
-      <div class="card" v-if="isLoading" v-for="{ id, poste, lieux, mission, Durée, image, remuneration } in entrepriseCards" :key="id">
+
+    <div v-if="isLoading">
+      Chargement en cours...
+    </div>
+
+    <div class="ctn"  v-else>
+      <div class="card" v-for="{ id, poste, lieux, mission, Durée, image, remuneration } in entrepriseCards" :key="id">
         <div class="boxR">
           <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 170px">
           <button :class="{ liked: isLiked(id) }" @click="toggleLike({ id, poste, lieux, mission, Durée, image, remuneration })">
@@ -30,7 +35,7 @@
 </template>
 
 <script>
-import { useLoadUsers } from '@/main'
+
 import CloudImage from "@/components/ENTREPRISE/CloudImage";
 import firebase from "firebase/compat/app";
 import Button from "@/components/HOME/Button/ButtonO";
@@ -39,28 +44,20 @@ export default {
   components: {Button, CloudImage },
   data() {
     return {
-      isLoading: true,
+
       likedMissions: [],
-      entrepriseCards: []
+      entrepriseCards: [],
+      isLoading: true,
     }
   },
     mounted() {
-
       const db = firebase.firestore()
-      db.collection('entreprise').get()
+      db.collectionGroup('Card').get()
           .then(querySnapshot => {
             querySnapshot.forEach(doc => {
-              const cardsRef = doc.ref.collection('Card')
-              cardsRef.get()
-                  .then(cardQuerySnapshot => {
-                    cardQuerySnapshot.forEach(cardDoc => {
-                      this.entrepriseCards.push(({ id: doc.id, ...cardDoc.data() }))
-                    })
-                  })
-                  .catch(error => {
-                    console.log(error)
-                  })
+              this.entrepriseCards.push(({ id: doc.id, ...doc.data() }))
             })
+            this.isLoading = false
           })
           .catch(error => {
             console.log(error)

@@ -59,6 +59,7 @@ import firebase from "firebase/compat/app";
 export default {
   data() {
     return {
+      isLoading: true,
       etudiantCards: []
 
     }
@@ -70,6 +71,7 @@ export default {
           querySnapshot.forEach(doc => {
             this.etudiantCards.push(({ id: doc.id, ...doc.data() }))
           })
+          this.isLoading = false
         })
         .catch(error => {
           console.log(error)

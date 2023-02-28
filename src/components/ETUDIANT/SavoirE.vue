@@ -1,7 +1,10 @@
 <template>
   <div  class="CTN" >
+    <div v-if="isLoading">
+      ça charge
+    </div>
 
-    <div id="demoObject">
+    <div id="demoObject" v-else>
       <div class="ctn">
         <h1 class ="Titre">{{info.nom}}</h1>
         <h2 class ="ST">{{info.prenom}}</h2>
@@ -64,6 +67,7 @@ export default {
     querySnapshot.forEach(doc => {
       this.info = doc.data()
     })
+    this.isLoading = false
   }
 
 
