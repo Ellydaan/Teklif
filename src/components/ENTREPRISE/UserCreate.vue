@@ -150,16 +150,21 @@ export default {
       const storageRef = ref(storage, 'Entreprise/' + this.$refs.myfile.files[0].name);
       uploadBytes(storageRef, this.$refs.myfile.files[0])
 
-      db.collection("CardE").add({...this.form, image: storageRef.fullPath } )
-          .then(() => {
-            this.form = { poste: '', lieux: '', mission: '', entreprise:'', Durée: '',emailE:'', description:"",profile:"",remuneration:"",image: null  };
-            console.log("ok")
 
-          })
 
-          .catch((error) => {
-            console.error(error)
-          })
+      firebase.auth().onAuthStateChanged((user) => {
+
+        db.collection('entreprise').doc(user.uid).collection('Card').doc(user.uid).set
+        ({   poste: this.form.poste,  lieux: this.form.lieux, mission: this.form.mission, entreprise: this.form.entreprise, Durée: this.form.Durée, description: this.form.description, profile: this.form.profile, remuneration: this.form.remuneration, emailE: this.form.emailE, image: this.$refs.myfile.files[0].name,})
+            .then(() => {
+              this.$router.push("/Etudiant");
+            });
+
+
+
+      });
+
+
 
 
     },

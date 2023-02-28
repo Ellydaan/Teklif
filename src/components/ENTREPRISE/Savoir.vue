@@ -4,30 +4,30 @@
     <div id="demoObject">
 
       <div class="haut">
-      <div class="ctn">
-    <h1 class ="Titre">{{info.poste}}</h1>
-    <h2 class ="ST">{{info.lieux}}</h2>
-    <p class ="Text">Description de la mission : {{info.mission}}</p>
-      <p class ="Text">{{info.profile}}</p>
-      </div>
-
-
-
-
-
-
-
-      <div class="form">
-        <div class="form1">
-
-        <input type="text" placeholder="Nom" v-model="form.nom" />
-        <input type="text" placeholder="Prénom" v-model="form.prenom" />
-        <input type="text" placeholder="Email" v-model="form.email" />
-        <input type="text" placeholder="Téléphone" v-model="form.tel" />
-          <input type="file" ref="myfile">
-
+        <div class="ctn">
+          <h1 class ="Titre">{{info.poste}}</h1>
+          <h2 class ="ST">{{info.lieux}}</h2>
+          <p class ="Text">Description de la mission : {{info.mission}}</p>
+          <p class ="Text">{{info.profile}}</p>
         </div>
-      </div>
+
+
+
+
+
+
+
+        <div class="form">
+          <div class="form1">
+
+            <input type="text" placeholder="Nom" v-model="form.nom" />
+            <input type="text" placeholder="Prénom" v-model="form.prenom" />
+            <input type="text" placeholder="Email" v-model="form.email" />
+            <input type="text" placeholder="Téléphone" v-model="form.tel" />
+            <input type="file" ref="myfile">
+
+          </div>
+        </div>
       </div>
 
       <div class="box">
@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
 
 
 
@@ -67,6 +67,7 @@ import {db, getUser, storage, useLoadUsers} from '@/main'
 import firebase from "firebase/compat/app";
 import  { ref,uploadBytes } from "firebase/storage"
 import Navbar from "@/components/navbar";
+
 
 
 export default {
@@ -89,12 +90,9 @@ export default {
   },
 
   async mounted() {
-    // const route = useRoute()
-    const userId = this.$route.params.id
-    const user = await getUser(userId)
-    this.isLoading = false
-    console.log(user, userId)
-    this.info = user
+
+
+
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         db.collection("etudiant").doc(user.uid).get()
@@ -118,8 +116,19 @@ export default {
       await db.collection("EtudiantToEntreprise").add({...this.form, image: storageRef.fullPath,post: this.info.poste, emailE: this.info.emailE})
       console.log("tout est bon")
     },
-  
+
   },
+
+async created() {
+  const missionId = this.$route.params.id
+  firebase.auth().currentUser.uid
+  const entrepriseRef = firebase.firestore().collection('entreprise').doc(missionId)
+  const cardRef = entrepriseRef.collection('Card')
+  const querySnapshot = await cardRef.get()
+  querySnapshot.forEach(doc => {
+    this.info = doc.data()
+  })
+}
 
 
 
@@ -156,7 +165,7 @@ export default {
   width:  426px;
   height: 100%;
   border-radius: 0 45px 0 0;
- background-color: #FF7D5A;
+  background-color: #FF7D5A;
 }
 .form1{
   display: flex;
@@ -166,7 +175,7 @@ export default {
   padding: 0 20px;
 }
 .ctn{
- margin: 15px 20px ;
+  margin: 15px 20px ;
 
 }
 

@@ -4,7 +4,7 @@
       <h1>Trouvez la mission qu’il vous faut</h1>
     </div>
     <div class="ctn">
-      <div class="card" v-if="isLoading" v-for="{ id, poste, lieux, mission, Durée, image, remuneration } in users" :key="id">
+      <div class="card" v-if="isLoading" v-for="{ id, poste, lieux, mission, Durée, image, remuneration } in entrepriseCards" :key="id">
         <div class="boxR">
           <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 170px">
           <button :class="{ liked: isLiked(id) }" @click="toggleLike({ id, poste, lieux, mission, Durée, image, remuneration })">
@@ -13,7 +13,7 @@
         </div>
         <div class="boxL">
           <div class="boxL1">
-            <h1>{{ poste }}</h1>
+            <h1>{{ mission}}</h1>
             <div class="boxB">
               <p>{{ lieux }}</p>
               <p>{{ Durée }}</p>
@@ -41,12 +41,32 @@ export default {
     return {
       isLoading: true,
       likedMissions: [],
+      entrepriseCards: []
     }
   },
-  setup() {
-    const users = useLoadUsers()
-    return { users }
-  },
+    mounted() {
+
+      const db = firebase.firestore()
+      db.collection('entreprise').get()
+          .then(querySnapshot => {
+            querySnapshot.forEach(doc => {
+              const cardsRef = doc.ref.collection('Card')
+              cardsRef.get()
+                  .then(cardQuerySnapshot => {
+                    cardQuerySnapshot.forEach(cardDoc => {
+                      this.entrepriseCards.push(({ id: doc.id, ...cardDoc.data() }))
+                    })
+                  })
+                  .catch(error => {
+                    console.log(error)
+                  })
+            })
+          })
+          .catch(error => {
+            console.log(error)
+          })
+    },
+
   async created() {
     const userId = firebase.auth().currentUser.uid
     const likesRef = firebase.firestore().collection('etudiant').doc(userId).collection('like')

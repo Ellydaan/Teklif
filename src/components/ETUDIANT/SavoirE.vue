@@ -40,8 +40,12 @@
 </template>
 
 <script>
-import {getE} from '@/main'
+
+
+import firebase from "firebase/compat/app";
+
 import Navbar from "@/components/navbar";
+
 
 export default {
   components: {Navbar},
@@ -51,14 +55,16 @@ export default {
       info: {},
     }
   },
-  async mounted() {
-    // const route = useRoute()
-    const cardId = this.$route.params.id
-    const card = await getE(cardId)
-    this.isLoading = false
-    console.log(card, cardId)
-    this.info = card
-  },
+  async created() {
+    const missionId = this.$route.params.id
+    firebase.auth().currentUser.uid
+    const entrepriseRef = firebase.firestore().collection('etudiant').doc(missionId)
+    const cardRef = entrepriseRef.collection('CardE')
+    const querySnapshot = await cardRef.get()
+    querySnapshot.forEach(doc => {
+      this.info = doc.data()
+    })
+  }
 
 
 }

@@ -50,40 +50,6 @@ Vue.config.productionTip = false
 
 
 
-
-export const getUser = async id => {
-  const user = await CardECollection.doc(id).get()
-  return user.exists ? user.data() : null
-}
-export const getE = async id => {
-  const card = await Card.doc(id).get()
-  return card.exists ? card.data() : null
-}
-
-
-
-const CardECollection = db.collection('CardE',)
-const Card = db.collection('Card')
-
-
-export const useLoadUsers = () => {
-  const users = ref([])
-  const close = CardECollection.onSnapshot(snapshot => {
-    users.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-  })
-  onUnmounted(close)
-  return users
-}
-export const useLoadCard = () => {
-  const etudiante = ref([])
-  const close = Card.onSnapshot(snapshot => {
-    etudiante.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-  })
-  onUnmounted(close)
-  return etudiante
-}
-
-
 new Vue({
   router,
   store,

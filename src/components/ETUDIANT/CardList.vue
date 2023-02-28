@@ -6,13 +6,13 @@
     <div class="header">
       <h1>Trouvez l'étudiant qu’il vous faut </h1>
     </div>
-    
+
     <div v-if="isLoading">
       Chargement en cours...
     </div>
 
     <div class="ctn"  v-else>
-      <div class="card" v-for="{ id,prenom, nom, specialite,image} in missions" :key="id">
+      <div class="card" v-for="{ id,prenom, nom, specialite,image} in etudiantCards" :key="id">
         <div class="boxR">
           <img src="../../assets/logo_tek.png" alt="logo" class="img" style="width: 170px">
         </div>
@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="boxL2">
-            <router-link class="btn" :to="`/Savoir/${id}`">En savoir plus</router-link>
+            <router-link class="btn" :to="`/EnSavoire/${id}`">En savoir plus</router-link>
 
           </div>
 
@@ -57,38 +57,24 @@ import CloudImage from "@/components/ENTREPRISE/CloudImage";
 import firebase from "firebase/compat/app";
 
 export default {
-  name: "CardList",
-  components: {CloudImage},
-
   data() {
     return {
-      isLoading: true,
-      missions: [],
+      etudiantCards: []
+
     }
   },
-
-
-  async created() {
-    const etudiantRef = firebase.firestore().collection('etudiant');
-    const querySnapshot = await etudiantRef.get();
-
-    const missions = [];
-
-    querySnapshot.forEach((doc) => {
-      const cardERef = doc.ref.collection('CardE');
-      cardERef.get().then((cardESnapshot) => {
-        cardESnapshot.forEach((cardEDoc) => {
-          missions.push(cardEDoc.data());
-        });
-      });
-    });
-
-    this.missions = missions;
-    this.isLoading = false;
-  },
-
-
-
+  mounted() {
+    const db = firebase.firestore()
+    db.collectionGroup('CardE').get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            this.etudiantCards.push(({ id: doc.id, ...doc.data() }))
+          })
+        })
+        .catch(error => {
+          console.log(error)
+        })
+  }
 }
 
 
