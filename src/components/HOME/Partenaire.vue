@@ -92,7 +92,7 @@ h1{
   justify-content: space-around;
 align-items: flex-start;
   flex-wrap: wrap;
-  width: 62%;
+  width: 400px;
   height: 100%;
   padding-top: 70px;
   gap: 25px;
@@ -120,6 +120,41 @@ p{
 span{
   color: #5B03E4;
 }
+
+
+@media screen and (max-width: 480px) {
+.CTNcard{
+  width: 100%;
+
+
+  }
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+.CTNcard{
+  width: 100%;
+;
+  }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+.CTNcard{
+  width: 20%;
+  background-color: pink;
+
+  }
+
+}
+@media screen and (min-width: 1025px) {
+.CTNcard{
+  width: 900px;
+
+
+  }
+}
+
 
 
 

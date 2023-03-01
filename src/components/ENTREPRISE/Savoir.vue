@@ -1,7 +1,7 @@
 <template>
   <div  class="CTN" >
     <div v-if="isLoading">
-      ça charge
+     <Loading/>
     </div>
 
     <div id="demoObject" v-else>
@@ -70,12 +70,13 @@ import {db, storage, } from '@/main'
 import firebase from "firebase/compat/app";
 import  { ref,uploadBytes } from "firebase/storage"
 import Navbar from "@/components/navbar";
+import Loading from "@/components/Loading";
 
 
 
 export default {
 
-  components: {Navbar},
+  components: {Loading, Navbar},
   data() {
     return {
       isLoading: true,
@@ -165,10 +166,14 @@ async created() {
   height: 300px;
 }
 .form{
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
   width:  426px;
   height: 100%;
   border-radius: 0 45px 0 0;
-  background-color: #FF7D5A;
+  background-color: #C03AFE;
 }
 .form1{
   display: flex;
@@ -176,6 +181,7 @@ async created() {
   justify-content: space-evenly;
   height: 100%;
   padding: 0 20px;
+  width: 90%;
 }
 .ctn{
   margin: 15px 20px ;
@@ -226,7 +232,7 @@ body#tinymce {
   width: 100%;
   height: 100px;
   border-radius: 0 0 45px 45px;
-  background-color: #F2E6E2;
+  background-color: #5B03E4;
 }
 .item1{
   display: flex;
@@ -259,7 +265,7 @@ body#tinymce {
   width: 35%;
   height: 100%;
   border-radius: 0 0 45px;
-  background-color: #FF7D5A;
+  background-color: #C03AFE;
 
 }
 .right p {

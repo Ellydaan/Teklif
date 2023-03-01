@@ -7,8 +7,8 @@
       <h1>Trouvez l'étudiant qu’il vous faut </h1>
     </div>
 
-    <div v-if="isLoading">
-      Chargement en cours...
+    <div v-if="isLoading" class="loading">
+     <Loading/>
     </div>
 
     <div class="ctn"  v-else>
@@ -55,8 +55,10 @@
 import 'firebase/firestore'
 import CloudImage from "@/components/ENTREPRISE/CloudImage";
 import firebase from "firebase/compat/app";
+import Loading from "@/components/Loading";
 
 export default {
+  components: {Loading},
   data() {
     return {
       isLoading: true,
@@ -87,6 +89,12 @@ export default {
   margin-top: 60px;
 
 
+}
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .ctn{

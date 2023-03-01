@@ -10,21 +10,18 @@
   </div>
   <div class="item3">
     <div class="btn">
-      <button class="mission">
-      <router-link to="/Mission" class="mission">
-
-        Trouver une mission
-
+      <router-link to="/Mission" >
+        <button class="mission">
+          Trouver un etudiant
+        </button>
       </router-link>
-      </button>
 
-      <button class="etudiant">
-        <router-link to="/Etudiant" class="etudiant">
 
-          Trouver une mission
-
-        </router-link>
-      </button>
+      <router-link to="/Etudiant" >
+        <button class="etudiante">
+          Trouver un etudiant
+        </button>
+      </router-link>
 
     </div>
 
@@ -84,23 +81,32 @@ button:active {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 .mission {
-  width: 40%;
   height: 70px;
-  background-color: #5B03E4;
+  background-color: #5B03E4;;
+
   color: white;
   font-size: 1.15rem;
   font-weight: 500;
- text-decoration: none;
-
+  text-decoration: none;
+  border: none;
+  width: 200px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
-.etudiant {
-  width: 40%;
+.etudiante {
+
   height: 70px;
   background-color: #C03AFE;
   color: white;
   font-size: 1.15rem;
   font-weight: 500;
   text-decoration: none;
+  border: none;
+  width: 200px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 .item3{
   display: flex;

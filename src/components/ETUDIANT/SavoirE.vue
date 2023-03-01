@@ -1,7 +1,7 @@
 <template>
   <div  class="CTN" >
     <div v-if="isLoading">
-      ça charge
+     <Loading/>
     </div>
 
     <div id="demoObject" v-else>
@@ -48,10 +48,11 @@
 import firebase from "firebase/compat/app";
 
 import Navbar from "@/components/navbar";
+import Loading from "@/components/Loading";
 
 
 export default {
-  components: {Navbar},
+  components: {Loading, Navbar},
   data() {
     return {
       isLoading: true,

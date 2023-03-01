@@ -4,8 +4,8 @@
       <h1>Trouvez la mission qu’il vous faut</h1>
     </div>
 
-    <div v-if="isLoading">
-      Chargement en cours...
+    <div v-if="isLoading" class="loading">
+      <Loading />
     </div>
 
     <div class="ctn"  v-else>
@@ -39,9 +39,10 @@
 import CloudImage from "@/components/ENTREPRISE/CloudImage";
 import firebase from "firebase/compat/app";
 import Button from "@/components/HOME/Button/ButtonO";
+import Loading from "@/components/Loading";
 
 export default {
-  components: {Button, CloudImage },
+  components: {Loading, Button, CloudImage },
   data() {
     return {
 
@@ -58,6 +59,7 @@ export default {
               this.entrepriseCards.push(({ id: doc.id, ...doc.data() }))
             })
             this.isLoading = false
+
           })
           .catch(error => {
             console.log(error)
@@ -83,6 +85,7 @@ export default {
         await querySnapshot.docs[0].ref.delete()
         this.likedMissions = this.likedMissions.filter((id) => id !== mission.id)
         console.log('Mission removed from likes collection:', mission)
+
       }
     },
     isLiked(id) {
@@ -103,6 +106,15 @@ button {
   font-size: 1.5rem;
   color: #ccc;
   transition: color 0.2s;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+
+
 }
 
 .liked {
